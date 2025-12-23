@@ -8,14 +8,14 @@ import {
   Move,
   Dumbbell,
   Heart,
-  Hand
+  Sparkles
 } from 'lucide-react';
 import { FAQItem, NavLink, PainPoint, Service, Testimonial } from './types';
 
 export const NAV_LINKS: NavLink[] = [
   { label: 'Servicios', href: '#servicios' },
+  { label: 'Acupuntura', href: '#acupuntura' },
   { label: 'Clases', href: '#clases' },
-  { label: 'Nosotros', href: '#metodologia' },
   { label: 'Ubicación', href: '#ubicacion' },
 ];
 
@@ -44,23 +44,23 @@ export const SERVICES: Service[] = [
   // Clinical Services
   {
     id: 'deportiva',
-    title: 'Rehabilitación Traumatológica y Deportiva',
+    title: 'Rehabilitación Deportiva',
     description: 'Retorno al movimiento seguro. Evaluaciones biomecánicas para personas activas, corredores y bailarines.',
-    iconUrl: 'https://i.postimg.cc/nrgfKvpP/image.png', // Nuevo icono de kinesiología deportiva enviado por el usuario
+    iconUrl: 'https://i.postimg.cc/1Xf380WV/unnamed-(22).jpg',
     category: 'clinical'
   },
   {
     id: 'kine-integral',
     title: 'Kinesiología Integral',
-    description: 'Sesiones profesionales con Licenciados UBA. Terapia manual, ejercicio terapéutico y fisioterapia analgésica.',
-    iconUrl: 'https://i.postimg.cc/dhqbQ6jQ/image.png', // Icono de terapia manual enviado por el usuario
+    description: 'Sesiones 1 a 1 de una hora. Terapia manual, ejercicio terapéutico y fisioterapia analgésica con enfoque en la causa.',
+    iconUrl: 'https://i.postimg.cc/D43TDG3w/unnamed-(23).jpg',
     category: 'clinical'
   },
   {
-    id: 'ejercicios-terapeuticos',
-    title: 'Ejercicios Terapéuticos',
-    description: 'Programas personalizados para recuperar movilidad y fuerza funcional tras una lesión o cirugía.',
-    icon: Dumbbell,
+    id: 'acupuntura-clinica',
+    title: 'Acupuntura Clínica',
+    description: 'Técnica milenaria para restablecer la energía, aliviar el dolor crónico y potenciar la recuperación física.',
+    icon: Sparkles,
     category: 'clinical'
   },
   
@@ -68,14 +68,14 @@ export const SERVICES: Service[] = [
   {
     id: 'flex',
     title: 'Taller FLEX',
-    description: 'Para deportistas y personas activas. Exigencia física para ganar flexibilidad, control y rango de movimiento.',
+    description: 'Exigencia física para ganar flexibilidad, control y rango de movimiento. Ideal para deportistas.',
     icon: Move,
     category: 'group'
   },
   {
     id: 'taller-corporal',
     title: 'Taller Corporal',
-    description: 'Exploración y despliegue de las posibilidades de movimiento integrando coordinación, equilibrio, fuerza, flexibilidad y escucha postural.',
+    description: 'Exploración del movimiento integrando fuerza, equilibrio y escucha postural para una vida más ágil.',
     icon: Users,
     category: 'group',
     promo: '¡PROMO ENERO! 2 clases semanales + 1 de regalo 🎁'
@@ -83,7 +83,7 @@ export const SERVICES: Service[] = [
   {
     id: 'rehab-mayores',
     title: 'Rehabilitación para Adultos Mayores',
-    description: 'Programas especializados para mantener la autonomía, el equilibrio y la fuerza en un entorno seguro.',
+    description: 'Programas especializados para mantener la autonomía y el equilibrio en un entorno seguro y cálido.',
     icon: Heart,
     category: 'group'
   }
@@ -124,22 +124,22 @@ export const FAQS: FAQItem[] = [
   {
     id: 'f1',
     question: '¿Cuánto duran las sesiones?',
-    answer: 'Las sesiones de kinesiología duran aproximadamente 1 hora. Esto nos permite combinar terapia manual y fisioterapia analgésica sin apuros.'
+    answer: 'Las sesiones de kinesiología y acupuntura duran aproximadamente 1 hora. La atención es 1 a 1 para garantizar resultados óptimos.'
   },
   {
     id: 'f2',
-    question: '¿Necesito experiencia para las clases grupales?',
-    answer: 'No. Tenemos niveles diferenciados: Rehabilitación para Adultos Mayores y Taller Corporal son de intensidad moderada, mientras que FLEX es más exigente.'
+    question: '¿La acupuntura duele?',
+    answer: 'No. Las agujas son extremadamente delgadas y la inserción es indolora. La mayoría de los pacientes experimentan una profunda relajación durante la sesión.'
   },
   {
     id: 'f3',
-    question: '¿Quiénes son los profesionales?',
-    answer: 'Nuestro equipo está formado por Licenciados en Kinesiología (UBA) con amplia experiencia en rehabilitación y ejercicio terapéutico.'
+    question: '¿Puedo combinar kinesiología con acupuntura?',
+    answer: 'Sí, de hecho es nuestra especialidad. Combinar ambas técnicas potencia la reducción del dolor y acelera la recuperación de la fuerza y movilidad.'
   },
   {
     id: 'f4',
     question: '¿Cómo agendo un turno?',
-    answer: 'Podés escribirnos por WhatsApp. Realizamos una evaluación inicial para definir el tratamiento o clase guiar que mejor se adapte a tus necesidades.'
+    answer: 'Podés escribirnos por WhatsApp. Realizamos una evaluación inicial para definir el tratamiento que mejor se adapte a tus necesidades.'
   }
 ];
 

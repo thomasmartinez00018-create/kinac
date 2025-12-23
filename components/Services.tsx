@@ -40,12 +40,12 @@ const Services: React.FC<ServicesProps> = ({ onSchedule }) => {
               <Reveal key={service.id} delay={index * 100}>
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 h-full flex flex-col group relative overflow-hidden">
                   <div className="mb-6">
-                    <div className="w-16 h-16 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 group-hover:bg-primary-100 transition-colors duration-300">
+                    <div className="w-16 h-16 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 group-hover:bg-primary-100 transition-colors duration-300 overflow-hidden">
                       {service.iconUrl ? (
                         <img 
                           src={service.iconUrl} 
                           alt={service.title} 
-                          className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300" 
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
                         />
                       ) : (
                         service.icon && <service.icon className="w-7 h-7 group-hover:scale-110 transition-transform duration-300" />
@@ -92,7 +92,7 @@ const Services: React.FC<ServicesProps> = ({ onSchedule }) => {
                   <div className="mb-6 relative">
                     <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-accent-500 shadow-sm z-10 relative overflow-hidden">
                       {service.iconUrl ? (
-                        <img src={service.iconUrl} alt={service.title} className="w-10 h-10 object-contain" />
+                        <img src={service.iconUrl} alt={service.title} className="w-full h-full object-cover" />
                       ) : (
                         service.icon && <service.icon className="w-8 h-8" />
                       )}

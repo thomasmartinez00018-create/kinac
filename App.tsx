@@ -1,8 +1,10 @@
+
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProblemSection from './components/ProblemSection';
 import Services from './components/Services';
+import AcupunctureSection from './components/AcupunctureSection';
 import Methodology from './components/Methodology';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
@@ -34,6 +36,7 @@ const App: React.FC = () => {
         <Hero onSchedule={openModal} />
         <ProblemSection onSchedule={openModal} />
         <Services onSchedule={openModal} />
+        <AcupunctureSection onSchedule={openModal} />
         <Methodology onSchedule={openModal} />
         <Testimonials />
         <FAQ onSchedule={openModal} />

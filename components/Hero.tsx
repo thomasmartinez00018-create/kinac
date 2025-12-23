@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Star, MapPin, Gift } from 'lucide-react';
 import Button from './ui/Button';
@@ -36,10 +37,12 @@ const Hero: React.FC<HeroProps> = ({ onSchedule }) => {
             </Reveal>
 
             <Reveal delay={200} priority>
-              <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-lg leading-relaxed font-light">
-                Rehabilitación Deportiva y Clases de Movimiento. 
-                Un espacio profesional para entrenar sin miedo.
-              </p>
+              <div className="text-lg md:text-xl text-gray-600 mb-8 max-w-lg leading-relaxed font-light">
+                <p className="font-semibold text-gray-800 uppercase tracking-wide text-sm md:text-base mb-2">
+                  Kinesiología · Actividad física adultos · Rehabilitación deportiva
+                </p>
+                <p>Un espacio profesional para entrenar sin miedo.</p>
+              </div>
             </Reveal>
 
             <Reveal delay={300} priority>
