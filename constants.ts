@@ -46,21 +46,21 @@ export const SERVICES: Service[] = [
     id: 'deportiva',
     title: 'Rehabilitación Deportiva',
     description: 'Retorno al movimiento seguro. Evaluaciones biomecánicas para personas activas, corredores y bailarines.',
-    iconUrl: 'https://i.postimg.cc/1Xf380WV/unnamed-(22).jpg',
+    iconUrl: 'https://i.postimg.cc/vHmYFbRn/Gemini-Generated-Image-gl1b7igl1b7igl1b.png',
     category: 'clinical'
   },
   {
     id: 'kine-integral',
     title: 'Kinesiología Integral',
     description: 'Sesiones 1 a 1 de una hora. Terapia manual, ejercicio terapéutico y fisioterapia analgésica con enfoque en la causa.',
-    iconUrl: 'https://i.postimg.cc/D43TDG3w/unnamed-(23).jpg',
+    iconUrl: 'https://i.postimg.cc/k5W9F58M/Gemini-Generated-Image-5zt1225zt1225zt1.png',
     category: 'clinical'
   },
   {
     id: 'acupuntura-clinica',
     title: 'Acupuntura Clínica',
     description: 'Técnica milenaria para restablecer la energía, aliviar el dolor crónico y potenciar la recuperación física.',
-    icon: Sparkles,
+    icon: Sparkles, // Usamos icono de Lucide como "emoji" congruente
     category: 'clinical'
   },
   

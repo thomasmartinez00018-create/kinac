@@ -36,29 +36,32 @@ const Services: React.FC<ServicesProps> = ({ onSchedule }) => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {clinicalServices.map((service, index) => (
-              <Reveal key={service.id} delay={index * 100}>
-                <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 h-full flex flex-col group relative overflow-hidden">
-                  <div className="mb-6">
-                    <div className="w-16 h-16 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 group-hover:bg-primary-100 transition-colors duration-300 overflow-hidden">
-                      {service.iconUrl ? (
-                        <img 
-                          src={service.iconUrl} 
-                          alt={service.title} 
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
-                        />
-                      ) : (
-                        service.icon && <service.icon className="w-7 h-7 group-hover:scale-110 transition-transform duration-300" />
-                      )}
+            {clinicalServices.map((service, index) => {
+              const isDeportiva = service.id === 'deportiva';
+              return (
+                <Reveal key={service.id} delay={index * 100}>
+                  <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 h-full flex flex-col group relative overflow-hidden">
+                    <div className="mb-6">
+                      <div className="w-16 h-16 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 group-hover:bg-primary-100 transition-colors duration-300 overflow-hidden relative">
+                        {service.iconUrl ? (
+                          <img 
+                            src={service.iconUrl} 
+                            alt={service.title} 
+                            className={`w-full h-full group-hover:scale-110 transition-transform duration-300 ${isDeportiva ? 'object-contain p-2' : 'object-cover'}`} 
+                          />
+                        ) : (
+                          service.icon && <service.icon className="w-7 h-7 group-hover:scale-110 transition-transform duration-300" />
+                        )}
+                      </div>
                     </div>
+                    <h3 className="text-xl font-serif font-bold text-gray-900 mb-3">{service.title}</h3>
+                    <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
+                      {service.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-serif font-bold text-gray-900 mb-3">{service.title}</h3>
-                  <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
-                    {service.description}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -92,9 +95,13 @@ const Services: React.FC<ServicesProps> = ({ onSchedule }) => {
                   <div className="mb-6 relative">
                     <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-accent-500 shadow-sm z-10 relative overflow-hidden">
                       {service.iconUrl ? (
-                        <img src={service.iconUrl} alt={service.title} className="w-full h-full object-cover" />
+                        <img 
+                          src={service.iconUrl} 
+                          alt={service.title} 
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
+                        />
                       ) : (
-                        service.icon && <service.icon className="w-8 h-8" />
+                        service.icon && <service.icon className="w-8 h-8 group-hover:scale-110 transition-transform duration-300" />
                       )}
                     </div>
                     <div className="absolute inset-0 bg-accent-200 rounded-full blur-xl opacity-20"></div>

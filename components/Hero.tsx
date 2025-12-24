@@ -80,7 +80,7 @@ const Hero: React.FC<HeroProps> = ({ onSchedule }) => {
             <Reveal delay={200} priority>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video md:aspect-auto md:h-[600px] border-4 border-white ring-1 ring-gray-100">
                  <img 
-                   src="https://i.postimg.cc/DmK4h0Dw/Video-recorriendo-la-sala-de-ejercicio-2.avif" 
+                   src="https://i.postimg.cc/qR8RRLQ2/image.png" 
                    alt="Sala de ejercicios Kinac Recoleta" 
                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                  />

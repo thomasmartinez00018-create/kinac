@@ -26,7 +26,7 @@ const AcupunctureSection: React.FC<AcupunctureSectionProps> = ({ onSchedule }) =
               <div className="relative">
                 <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-8 border-gray-50">
                   <img 
-                    src="https://i.postimg.cc/Hs3rs2TP/mas-orgnico-maps.png" 
+                    src="https://i.postimg.cc/25WjcwsM/Gemini-Generated-Image-7lfbt87lfbt87lfb.png" 
                     alt="Sesión de Acupuntura Profesional" 
                     className="w-full h-full object-cover"
                   />
