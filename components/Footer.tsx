@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { MapPin, Phone, Mail, Instagram, MessageCircle } from 'lucide-react';
 import { CONTACT_INFO, NAV_LINKS } from '../constants';
@@ -16,13 +17,12 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.2238497676646!2d-58.4046777!3d-34.5912444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca9096b79c3d%3A0x6b4f745789a8047!2sDr.%20Norberto%20Quirno%20Costa%201255%2C%20C1425%20CABA!5e0!3m2!1sen!2sar!4v1709920000000!5m2!1sen!2sar" 
           width="100%" 
           height="100%" 
-          style={{border:0, filter: 'grayscale(100%) contrast(1.2)'}} 
+          style={{ border: 0 }} 
           allowFullScreen 
           loading="lazy" 
           referrerPolicy="no-referrer-when-downgrade"
           title="Ubicación Kinac Recoleta"
         ></iframe>
-        <div className="absolute inset-0 bg-primary-900/10 pointer-events-none"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
