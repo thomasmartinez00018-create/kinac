@@ -1,14 +1,10 @@
+
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import { FAQS } from '../constants';
 import { Reveal } from './ui/Reveal';
-import Button from './ui/Button';
 
-interface FAQProps {
-  onSchedule: () => void;
-}
-
-const FAQ: React.FC<FAQProps> = ({ onSchedule }) => {
+const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFAQ = (index: number) => {
@@ -16,16 +12,16 @@ const FAQ: React.FC<FAQProps> = ({ onSchedule }) => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section className="py-12 md:py-16 bg-gray-50">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10 md:mb-14">
           <Reveal>
             <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">Preguntas Frecuentes</h2>
             <p className="text-gray-600">Resolvemos tus dudas antes de la primera visita.</p>
           </Reveal>
         </div>
 
-        <div className="space-y-4 mb-12">
+        <div className="space-y-4">
           {FAQS.map((faq, index) => (
             <Reveal key={faq.id} delay={index * 100}>
               <div 
@@ -57,23 +53,6 @@ const FAQ: React.FC<FAQProps> = ({ onSchedule }) => {
             </Reveal>
           ))}
         </div>
-
-        <Reveal delay={400}>
-            <div className="bg-primary-50 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4 border border-primary-100">
-                <div className="flex items-center gap-3">
-                    <div className="bg-white p-3 rounded-full text-primary-600 shadow-sm">
-                        <HelpCircle className="w-6 h-6"/>
-                    </div>
-                    <div className="text-center md:text-left">
-                        <h4 className="font-bold text-gray-900">¿Tenés otra consulta?</h4>
-                        <p className="text-sm text-gray-600">Escribinos directamente por WhatsApp.</p>
-                    </div>
-                </div>
-                <Button variant="outline" size="sm" onClick={onSchedule}>
-                    Hacer una pregunta
-                </Button>
-            </div>
-        </Reveal>
       </div>
     </section>
   );

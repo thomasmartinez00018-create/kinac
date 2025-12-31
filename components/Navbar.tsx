@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Instagram, Calendar } from 'lucide-react';
 import { NAV_LINKS } from '../constants';
 import Button from './ui/Button';
 
@@ -19,7 +20,9 @@ const Navbar: React.FC<NavbarProps> = ({ onSchedule }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, external?: boolean) => {
+    if (external) return; // Allow normal link behavior for external
+    
     e.preventDefault();
     setIsOpen(false);
 
@@ -32,8 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({ onSchedule }) => {
     const element = document.getElementById(targetId);
 
     if (element) {
-      // Calculate offset to ensure the fixed header doesn't cover the content
-      const headerOffset = 100; // Adjusts based on navbar height + breathing room
+      const headerOffset = 100;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
@@ -45,7 +47,7 @@ const Navbar: React.FC<NavbarProps> = ({ onSchedule }) => {
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-md py-2' : 'bg-transparent py-4'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-2' : 'bg-transparent py-4'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -55,39 +57,56 @@ const Navbar: React.FC<NavbarProps> = ({ onSchedule }) => {
             onClick={(e) => handleNavClick(e, '#')}
           >
             <img 
-              src="https://i.postimg.cc/Q9t8kqYr/Gemini-Generated-Image-dxal1ddxal1ddxal.png" 
+              src="https://i.postimg.cc/c4Rr5ddD/Logo.png" 
               alt="Kinac Logo" 
-              className="h-24 md:h-28 w-auto object-contain transition-all duration-300"
+              className="h-14 md:h-16 w-auto object-contain transition-all duration-300"
             />
           </a>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-gray-600 hover:text-primary-600 font-medium transition-colors text-sm uppercase tracking-wide"
-              >
-                {link.label}
-              </a>
-            ))}
-            <Button size="sm" onClick={onSchedule}>Solicitar Turno</Button>
+          <div className="hidden md:flex items-center space-x-10">
+            <div className="flex items-center space-x-8">
+              {NAV_LINKS.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  onClick={(e) => handleNavClick(e, link.href, link.external)}
+                  className={`flex items-center gap-1.5 font-semibold transition-colors text-xs uppercase tracking-widest ${
+                    link.external 
+                    ? 'text-brand-orange hover:text-brand-orange/80' 
+                    : 'text-gray-600 hover:text-brand-blue'
+                  }`}
+                >
+                  {link.external && <Instagram className="w-4 h-4" />}
+                  {link.label}
+                </a>
+              ))}
+            </div>
+            
+            <Button 
+              size="sm" 
+              variant="outline"
+              className="text-[10px] px-4 py-2 uppercase tracking-widest border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white"
+              onClick={onSchedule}
+            >
+              <Calendar className="w-3 h-3 mr-2" />
+              Agendar Turno
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-4">
-             {/* CTA visible on mobile for high conversion */}
-            <Button size="sm" className="text-xs px-3 py-2" onClick={onSchedule}>
+          <div className="md:hidden flex items-center gap-3">
+            <Button size="sm" variant="secondary" className="text-[10px] px-3 py-1.5 h-8 uppercase tracking-tighter" onClick={onSchedule}>
                 Turnos
             </Button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-primary-600 focus:outline-none p-2"
+              className="text-gray-600 hover:text-brand-blue focus:outline-none p-1.5"
               aria-label="Menu"
             >
-              {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
@@ -95,20 +114,25 @@ const Navbar: React.FC<NavbarProps> = ({ onSchedule }) => {
 
       {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl animate-in slide-in-from-top-5 duration-200">
-          <div className="px-4 pt-4 pb-8 space-y-4">
+        <div className="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-2xl animate-in slide-in-from-top-5 duration-200">
+          <div className="px-6 pt-6 pb-10 space-y-4">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="block px-3 py-3 rounded-lg text-lg font-medium text-gray-700 hover:text-primary-700 hover:bg-gray-50 border-b border-gray-50 last:border-0"
-                onClick={(e) => handleNavClick(e, link.href)}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
+                className={`flex items-center gap-3 px-3 py-4 rounded-xl text-xl font-serif font-bold border-b border-gray-50 last:border-0 ${
+                    link.external ? 'text-brand-orange' : 'text-gray-800'
+                }`}
+                onClick={(e) => handleNavClick(e, link.href, link.external)}
               >
+                {link.external && <Instagram className="w-6 h-6" />}
                 {link.label}
               </a>
             ))}
-            <div className="pt-4">
-              <Button className="w-full text-lg py-4" onClick={() => { setIsOpen(false); onSchedule(); }}>
+            <div className="pt-6">
+              <Button variant="secondary" className="w-full text-lg py-5 shadow-xl shadow-brand-orange/20" onClick={() => { setIsOpen(false); onSchedule(); }}>
                 Solicitar Evaluación
               </Button>
             </div>

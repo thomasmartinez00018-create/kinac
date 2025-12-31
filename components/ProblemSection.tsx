@@ -1,17 +1,13 @@
+
 import React from 'react';
 import { PAIN_POINTS } from '../constants';
 import { Reveal } from './ui/Reveal';
-import Button from './ui/Button';
 
-interface ProblemSectionProps {
-  onSchedule: () => void;
-}
-
-const ProblemSection: React.FC<ProblemSectionProps> = ({ onSchedule }) => {
+const ProblemSection: React.FC = () => {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-12 md:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-10 md:mb-14">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">¿El dolor te detiene?</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -34,14 +30,6 @@ const ProblemSection: React.FC<ProblemSectionProps> = ({ onSchedule }) => {
               </div>
             </Reveal>
           ))}
-        </div>
-
-        <div className="mt-12 text-center">
-            <Reveal delay={300}>
-                <Button onClick={onSchedule} variant="secondary">
-                    Quiero resolver mi dolor
-                </Button>
-            </Reveal>
         </div>
       </div>
     </section>

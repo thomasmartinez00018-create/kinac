@@ -12,10 +12,19 @@ import {
 } from 'lucide-react';
 import { FAQItem, NavLink, PainPoint, Service, Testimonial } from './types';
 
+export const CONTACT_INFO = {
+  phone: '+54 9 11 5622-8072',
+  whatsapp: '+5491156228072',
+  address: 'Dr. Norberto Quirno Costa 1255, Recoleta, CABA',
+  email: 'informacion@kinac.com.ar',
+  instagram: '@kinac.kinesio.acu',
+  instagramLink: 'https://www.instagram.com/kinac.kinesio.acu/',
+  mapsLink: 'https://www.google.com.ar/maps/place/KINAC+%7C+Centro+de+Kinesiolog%C3%ADa+y+Acupuntura/@-34.5951911,-58.4078438,17z/data=!4m8!3m7!1s0x95bccbf92e037037:0x3a7adaf9f6bbba3!8m2!3d-34.5951911!4d-58.4052635!9m1!1b1!16s%2Fg%2F11kg8lkvwl?hl=es&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
+};
+
 export const NAV_LINKS: NavLink[] = [
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Acupuntura', href: '#acupuntura' },
-  { label: 'Clases', href: '#clases' },
+  { label: 'Comunidad', href: CONTACT_INFO.instagramLink, external: true },
   { label: 'Ubicación', href: '#ubicacion' },
 ];
 
@@ -60,7 +69,7 @@ export const SERVICES: Service[] = [
     id: 'acupuntura-clinica',
     title: 'Acupuntura Clínica',
     description: 'Técnica milenaria para restablecer la energía, aliviar el dolor crónico y potenciar la recuperación física.',
-    icon: Sparkles, // Usamos icono de Lucide como "emoji" congruente
+    icon: Sparkles,
     category: 'clinical'
   },
   
@@ -142,11 +151,3 @@ export const FAQS: FAQItem[] = [
     answer: 'Podés escribirnos por WhatsApp. Realizamos una evaluación inicial para definir el tratamiento que mejor se adapte a tus necesidades.'
   }
 ];
-
-export const CONTACT_INFO = {
-  phone: '+54 9 11 5622-8072',
-  whatsapp: '+5491156228072',
-  address: 'Dr. Norberto Quirno Costa 1255, Recoleta, CABA',
-  email: 'informacion@kinac.com.ar',
-  mapsLink: 'https://www.google.com.ar/maps/place/KINAC+%7C+Centro+de+Kinesiolog%C3%ADa+y+Acupuntura/@-34.5951911,-58.4078438,17z/data=!4m8!3m7!1s0x95bccbf92e037037:0x3a7adaf9f6bbba3!8m2!3d-34.5951911!4d-58.4052635!9m1!1b1!16s%2Fg%2F11kg8lkvwl?hl=es&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
-};

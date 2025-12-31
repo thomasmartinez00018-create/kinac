@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Star, Quote, ExternalLink } from 'lucide-react';
 import { TESTIMONIALS, CONTACT_INFO } from '../constants';
@@ -5,7 +6,7 @@ import { Reveal } from './ui/Reveal';
 
 const Testimonials: React.FC = () => {
   return (
-    <section className="py-16 md:py-24 bg-primary-900 text-white relative overflow-hidden">
+    <section className="py-12 md:py-16 bg-primary-900 text-white relative overflow-hidden">
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
         <div className="absolute top-10 right-10 w-96 h-96 bg-primary-400 rounded-full blur-3xl"></div>
@@ -13,7 +14,7 @@ const Testimonials: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-10 md:mb-14">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Historias de Recuperación</h2>
             <p className="text-primary-100 text-lg max-w-2xl mx-auto">
@@ -59,7 +60,7 @@ const Testimonials: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-12 md:mt-16 flex flex-col items-center gap-4">
+        <div className="mt-10 md:mt-12 flex flex-col items-center gap-4">
             <Reveal delay={400}>
                 <a 
                   href={CONTACT_INFO.mapsLink} 

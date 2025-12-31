@@ -4,6 +4,7 @@ import { LucideIcon } from 'lucide-react';
 export interface NavLink {
   label: string;
   href: string;
+  external?: boolean;
 }
 
 export interface Service {
@@ -11,7 +12,7 @@ export interface Service {
   title: string;
   description: string;
   icon?: LucideIcon;
-  iconUrl?: string; // New field for custom images/emojis
+  iconUrl?: string;
   category: 'clinical' | 'group';
   promo?: string;
 }

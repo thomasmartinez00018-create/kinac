@@ -6,11 +6,16 @@ import { Reveal } from './ui/Reveal';
 
 interface HeroProps {
   onSchedule: () => void;
+  onPromoSchedule: () => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ onSchedule }) => {
+const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
   return (
-    <section className="relative pt-28 pb-16 lg:pt-40 lg:pb-28 overflow-hidden bg-gradient-to-br from-gray-50 to-white">
+    <section className="relative pt-24 pb-12 lg:pt-32 lg:pb-20 overflow-hidden bg-gradient-to-br from-primary-50 to-white">
+      {/* Decorative Circles with Brand Colors */}
+      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-brand-sky/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-80 h-80 bg-brand-orange/5 rounded-full blur-3xl"></div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           
@@ -18,27 +23,30 @@ const Hero: React.FC<HeroProps> = ({ onSchedule }) => {
           <div className="order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
             <Reveal priority>
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-sm font-semibold border border-primary-100">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-100 text-brand-blue text-sm font-semibold border border-primary-200">
                     <MapPin className="w-4 h-4" />
                     <span>Recoleta, Buenos Aires</span>
                 </div>
-                {/* PROMO BADGE */}
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-100 text-accent-800 text-sm font-bold border border-accent-200 animate-pulse">
+                {/* PROMO BADGE - Using Orange and Yellow for warmth */}
+                <button 
+                  onClick={onPromoSchedule}
+                  className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-yellow/15 text-brand-orange text-sm font-bold border border-brand-yellow animate-pulse hover:scale-105 transition-all cursor-pointer shadow-sm active:scale-95"
+                >
                     <Gift className="w-4 h-4" />
                     <span>Promo Enero: +1 Clase Gratis</span>
-                </div>
+                </button>
               </div>
             </Reveal>
 
             <Reveal delay={100} priority>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 leading-tight mb-6">
-                Recuperá tu movimiento, <span className="text-primary-600">potenciá tu bienestar.</span>
+                Recuperá tu movimiento, <span className="text-brand-blue">potenciá tu bienestar.</span>
               </h1>
             </Reveal>
 
             <Reveal delay={200} priority>
               <div className="text-lg md:text-xl text-gray-600 mb-8 max-w-lg leading-relaxed font-light">
-                <p className="font-semibold text-gray-800 uppercase tracking-wide text-sm md:text-base mb-2">
+                <p className="font-semibold text-brand-blue/80 uppercase tracking-wide text-sm md:text-base mb-2">
                   Kinesiología · Actividad física adultos · Rehabilitación deportiva
                 </p>
                 <p>Un espacio profesional para entrenar sin miedo.</p>
@@ -49,7 +57,8 @@ const Hero: React.FC<HeroProps> = ({ onSchedule }) => {
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                 <Button 
                   size="lg" 
-                  className="w-full sm:w-auto shadow-xl shadow-primary-900/10" 
+                  variant="secondary"
+                  className="w-full sm:w-auto shadow-xl shadow-brand-orange/20" 
                   onClick={onSchedule}
                 >
                   Solicitar Evaluación
@@ -66,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({ onSchedule }) => {
                   <div className="h-8 w-8 rounded-full bg-gray-100 ring-2 ring-white flex items-center justify-center text-xs font-bold text-gray-500">+</div>
                 </div>
                 <div className="text-sm">
-                  <div className="flex text-accent-500 mb-0.5">
+                  <div className="flex text-brand-yellow mb-0.5">
                     {[1,2,3,4,5].map(i => <Star key={i} className="w-3 h-3 fill-current" />)}
                   </div>
                   <p className="font-medium text-gray-700">Comunidad Activa</p>
@@ -86,15 +95,15 @@ const Hero: React.FC<HeroProps> = ({ onSchedule }) => {
                  />
               </div>
               
-              {/* Floating Card */}
-              <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl hidden md:block border border-gray-100 z-20">
-                 <div className="flex items-center gap-3">
-                   <div className="bg-primary-50 p-2 rounded-lg">
-                     <Star className="w-6 h-6 text-primary-600 fill-primary-600" />
+              {/* Floating Card - Using Brand Blue and Sky Blue */}
+              <div className="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-md p-5 rounded-2xl shadow-2xl hidden md:block border border-gray-100 z-20 min-w-[240px]">
+                 <div className="flex items-center gap-4">
+                   <div className="bg-primary-50 p-2.5 rounded-xl border border-primary-100">
+                     <Star className="w-6 h-6 text-brand-yellow fill-brand-yellow" />
                    </div>
                    <div>
-                     <p className="text-sm text-gray-500 font-medium">Equipamiento Moderno</p>
-                     <p className="text-lg font-bold text-gray-900 font-serif">Espacio Profesional</p>
+                     <p className="text-xs text-brand-sky font-bold uppercase tracking-wider mb-0.5">Espacio Pro</p>
+                     <p className="text-lg font-bold text-gray-900 font-serif">Equipamiento Moderno</p>
                    </div>
                  </div>
               </div>

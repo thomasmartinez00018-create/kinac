@@ -33,13 +33,13 @@ const App: React.FC = () => {
     <div className="font-sans text-gray-900 bg-white min-h-screen selection:bg-primary-200 selection:text-primary-900">
       <Navbar onSchedule={openModal} />
       <main>
-        <Hero onSchedule={openModal} />
-        <ProblemSection onSchedule={openModal} />
+        <Hero onSchedule={openModal} onPromoSchedule={openPromoModal} />
+        <ProblemSection />
         <Services onSchedule={openModal} />
-        <AcupunctureSection onSchedule={openModal} />
+        <AcupunctureSection />
         <Methodology onSchedule={openModal} />
         <Testimonials />
-        <FAQ onSchedule={openModal} />
+        <FAQ />
       </main>
       <Footer onSchedule={openModal} />
       
