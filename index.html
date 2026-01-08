@@ -11,6 +11,9 @@
     <meta name="author" content="Kinac" />
     <meta name="robots" content="index, follow" />
 
+    <!-- ACCIÓN 1: PRELOAD LCP (Prioridad Crítica) -->
+    <link rel="preload" as="image" href="/image.webp" fetchpriority="high">
+
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Kinac | Kinesiología y Acupuntura en Recoleta" />
@@ -18,38 +21,7 @@
     <meta property="og:image" content="/image.webp" />
     <meta property="og:url" content="https://kinac.com.ar" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Kinac | Kinesiología y Acupuntura en Recoleta" />
-    <meta name="twitter:description" content="Kinesiología y Acupuntura personalizada en Recoleta. Especialistas en rehabilitación." />
-    <meta name="twitter:image" content="/image.webp" />
-    
-    <!-- Preconexión a dominios de fuentes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- CSS CRÍTICO (Inline para eliminar el bloqueo de renderizado inicial) -->
-    <style>
-      :root {
-        --brand-blue: #1e40af;
-        --brand-orange: #c2410c;
-        --bg-primary: #f0f7fb;
-      }
-      body { margin: 0; font-family: sans-serif; background: #fff; color: #111827; -webkit-font-smoothing: antialiased; }
-      .hero-critical-bg { background: linear-gradient(to bottom right, var(--bg-primary), #ffffff); min-height: 100vh; }
-      /* Reserva de espacio para el logo (evita CLS) */
-      .logo-img { width: 70px; height: 70px; aspect-ratio: 1/1; object-fit: contain; }
-      /* Estilo crítico para el título del Hero */
-      .hero-title-placeholder { min-height: 1.2em; font-family: serif; font-weight: 800; font-size: 2.5rem; line-height: 1.2; }
-      @media (min-width: 768px) { .hero-title-placeholder { font-size: 3.75rem; } }
-      img { content-visibility: auto; }
-      @font-face { font-display: swap; }
-    </style>
-
-    <!-- Carga de fuentes no bloqueante con font-display: swap -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" media="print" onload="this.media='all'">
-    
-    <!-- Tailwind CDN optimizado -->
+    <!-- Tailwind CDN Configurado Correctamente -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -66,13 +38,44 @@
                 green: '#15803d',
                 sky: '#0369a1',
                 blue: '#1e40af',
+              },
+              primary: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                200: '#bfdbfe',
+                300: '#93c5fd',
+                900: '#1e3a8a',
+              },
+              accent: {
+                50: '#fff7ed',
+                600: '#ea580c',
               }
             }
           }
         }
       }
     </script>
+    
+    <!-- Preconexión a dominios de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- CSS CRÍTICO (Inline para FCP instantáneo) -->
+    <style>
+      :root {
+        --brand-blue: #1e40af;
+        --brand-orange: #c2410c;
+        --bg-primary: #f0f7fb;
+      }
+      body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: #fff; color: #111827; -webkit-font-smoothing: antialiased; }
+      .hero-critical-bg { background: linear-gradient(to bottom right, var(--bg-primary), #ffffff); min-height: 100vh; }
+      .hero-title-placeholder { min-height: 1.2em; font-family: 'Playfair Display', serif; font-weight: 800; }
+      html { scroll-behavior: smooth; }
+    </style>
 
+    <!-- Carga de fuentes no bloqueante -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" media="print" onload="this.media='all'">
+    
     <script type="importmap">
     {
       "imports": {
@@ -84,26 +87,6 @@
         "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
       }
     }
-    </script>
-
-    <script defer>
-    // Diferimiento de trackers para optimizar TBT (Total Blocking Time)
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        if (!window.fbq) {
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '1284275437030502');
-          fbq('track', 'PageView');
-        }
-      }, 5000); 
-    });
     </script>
 </head>
   <body>

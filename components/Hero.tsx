@@ -91,8 +91,8 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
                <img 
                  src="/image.webp" 
                  alt="Sala de kinesiología y entrenamiento Kinac en Recoleta" 
-                 width={800}
-                 height={1067}
+                 width={600}
+                 height={800}
                  className="w-full h-full object-cover"
                  // @ts-ignore
                  fetchpriority="high"
