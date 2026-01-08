@@ -51,10 +51,10 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
           <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-5 border border-gray-100 flex items-start gap-4">
             <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center flex-shrink-0 border border-gray-100 shadow-sm">
               <img 
-                src="/assets/logo.webp" 
+                src="/logo.webp" 
                 alt="Kinac" 
-                width="40"
-                height="40"
+                width={40}
+                height={40}
                 className="h-10 w-auto object-contain"
               />
             </div>
@@ -81,10 +81,10 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
           <div className="col-span-1 md:col-span-1">
             <div className="bg-white rounded-xl p-2 inline-block mb-4 shadow-md">
               <img 
-                src="/assets/logo.webp" 
+                src="/logo.webp" 
                 alt="Kinac Logo" 
-                width="70"
-                height="70"
+                width={70}
+                height={70}
                 loading="lazy"
                 className="h-16 w-auto object-contain"
               />

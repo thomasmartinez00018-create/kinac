@@ -56,10 +56,10 @@ const Navbar: React.FC<NavbarProps> = ({ onSchedule }) => {
             onClick={(e) => handleNavClick(e, '#')}
           >
             <img 
-              src="/assets/logo.webp" 
+              src="/logo.webp" 
               alt="Logo de Kinac" 
-              width="70"
-              height="70"
+              width={70}
+              height={70}
               className="logo-img"
               // @ts-ignore
               fetchpriority="high"

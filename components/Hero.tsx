@@ -69,8 +69,8 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
                    <img 
                     key={i} 
                     loading="lazy" 
-                    width="32" 
-                    height="32" 
+                    width={32} 
+                    height={32} 
                     className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover bg-gray-100" 
                     src={`https://picsum.photos/seed/kinac${i}/64/64`} 
                     alt={`Paciente de Kinac ${i}`} 
@@ -89,10 +89,10 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
           <div className="order-2 relative mt-8 lg:mt-0">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[3/4] md:h-[600px] border-4 border-white bg-gray-100">
                <img 
-                 src="/assets/image.webp" 
+                 src="/image.webp" 
                  alt="Sala de kinesiología y entrenamiento Kinac en Recoleta" 
-                 width="800"
-                 height="1067"
+                 width={800}
+                 height={1067}
                  className="w-full h-full object-cover"
                  // @ts-ignore
                  fetchpriority="high"

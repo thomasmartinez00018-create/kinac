@@ -37,8 +37,8 @@ const Services: React.FC<ServicesProps> = ({ onSchedule }) => {
                       <img 
                         src={service.iconUrl} 
                         alt={`Servicio de ${service.title}`} 
-                        width="64"
-                        height="64"
+                        width={64}
+                        height={64}
                         loading="lazy"
                         className="w-full h-full object-cover" 
                       />
