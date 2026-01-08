@@ -5,9 +5,9 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   build: {
-    target: 'es2022', // Target moderno para eliminar 36KiB de polyfills Babel
+    target: 'es2022', // Target moderno para eliminar polyfills innecesarios
     cssCodeSplit: true,
-    minify: 'terser',
+    minify: 'esbuild', // Cambio crítico: 'esbuild' no requiere dependencias externas como terser
     modulePreload: {
       polyfill: false
     }
