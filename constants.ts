@@ -53,14 +53,14 @@ export const SERVICES: Service[] = [
     id: 'deportiva',
     title: 'Rehabilitación Deportiva',
     description: 'Retorno al movimiento seguro. Evaluaciones biomecánicas para personas activas, corredores y bailarines.',
-    iconUrl: '/rehabilitacion-deportiva.webp',
+    iconUrl: '/public/rehabilitacion-deportiva.webp',
     category: 'clinical'
   },
   {
     id: 'kine-integral',
     title: 'Kinesiología Integral',
     description: 'Sesiones 1 a 1 de una hora. Terapia manual, ejercicio terapéutico y fisioterapia analgésica con enfoque en la causa.',
-    iconUrl: '/kinesiologia-integral.webp',
+    iconUrl: '/public/kinesiologia-integral.webp',
     category: 'clinical'
   },
   {
