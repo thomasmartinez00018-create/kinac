@@ -21,7 +21,7 @@ const AcupunctureSection: React.FC = () => {
                 <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-8 border-gray-50 bg-gray-100">
                   <img 
                     src="/acupuncture.webp" 
-                    alt="Profesional de Kinac realizando sesión de Acupuntura Clínica" 
+                    alt="Profesional de Kinac realizando sesión de Acupuntura Clínica y equilibrando la energía del paciente" 
                     width={600}
                     height={750}
                     loading="lazy"
@@ -34,7 +34,7 @@ const AcupunctureSection: React.FC = () => {
                     <div className="bg-brand-green/10 p-1.5 rounded-lg">
                         <UserCheck className="w-5 h-5 text-brand-green" />
                     </div>
-                    <span className="font-bold text-xs text-brand-green uppercase tracking-widest text-brand-green">Equilibrio Kinac</span>
+                    <span className="font-bold text-xs text-brand-green uppercase tracking-widest">Equilibrio Kinac</span>
                   </div>
                   <p className="text-sm text-gray-600 leading-relaxed">
                     La Acupuntura potencia la recuperación y reduce el estrés, equilibrando tu bienestar físico y emocional.
