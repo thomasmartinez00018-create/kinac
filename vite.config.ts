@@ -5,10 +5,11 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   build: {
-    target: 'es2020', // Target navegadores modernos para reducir polyfills
+    target: 'es2022', // Target moderno para eliminar 36KiB de polyfills Babel
     cssCodeSplit: true,
+    minify: 'terser',
     modulePreload: {
-      polyfill: false // No necesitamos polyfill para modulepreload en targets modernos
+      polyfill: false
     }
   },
   optimizeDeps: {

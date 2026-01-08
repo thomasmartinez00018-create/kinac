@@ -5,17 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kinac | Kinesiología y Acupuntura en Recoleta</title>
     
-    <!-- Preconexión a dominios críticos -->
+    <!-- Preconexión a dominios de fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://i.postimg.cc">
     
-    <!-- Carga de fuentes no bloqueante (Pattern: Print to All) -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" media="print" onload="this.media='all'">
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-    </noscript>
+    <!-- CSS CRÍTICO (Inline para eliminar el bloqueo de renderizado inicial) -->
+    <style>
+      :root {
+        --brand-blue: #1e40af;
+        --brand-orange: #c2410c;
+        --bg-primary: #f0f7fb;
+      }
+      body { margin: 0; font-family: sans-serif; background: #fff; color: #111827; -webkit-font-smoothing: antialiased; }
+      .hero-critical-bg { background: linear-gradient(to bottom right, var(--bg-primary), #ffffff); min-height: 100vh; }
+      /* Reserva de espacio para el logo (evita CLS) */
+      .logo-img { width: 70px; height: 70px; aspect-ratio: 1/1; object-fit: contain; }
+      /* Estilo crítico para el título del Hero */
+      .hero-title-placeholder { min-height: 1.2em; font-family: serif; font-weight: 800; font-size: 2.5rem; line-height: 1.2; }
+      @media (min-width: 768px) { .hero-title-placeholder { font-size: 3.75rem; } }
+      img { content-visibility: auto; }
+      @font-face { font-display: swap; }
+    </style>
 
+    <!-- Carga de fuentes no bloqueante con font-display: swap -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" media="print" onload="this.media='all'">
+    
+    <!-- Tailwind CDN optimizado -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -24,7 +39,6 @@
             fontFamily: {
               sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
               serif: ['"Playfair Display"', 'serif'],
-              body: ['Inter', 'sans-serif'],
             },
             colors: {
               brand: {
@@ -33,38 +47,12 @@
                 green: '#15803d',
                 sky: '#0369a1',
                 blue: '#1e40af',
-              },
-              primary: {
-                50: '#f0f7fb',
-                100: '#e0eff7',
-                200: '#b8d9ec',
-                300: '#7cbbe0',
-                400: '#389cd0',
-                500: '#0ea2da',
-                600: '#01a5dd', 
-                700: '#046dae', 
-                800: '#06598c',
-                900: '#0a4a71',
               }
             }
           }
         }
       }
     </script>
-    <style>
-      html { scroll-behavior: smooth; }
-      body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-      /* Forzar swap para evitar invisible text (FOIT) */
-      @font-face { font-display: swap; }
-      .font-serif { font-display: swap; }
-      
-      /* Optimización de Renderizado */
-      img { content-visibility: auto; }
-      ::selection { background-color: #1e40af; color: white; }
-      
-      /* CSS Crítico para el Hero para evitar CLS y FOUC */
-      .hero-title { min-height: 1.2em; }
-    </style>
 
     <script type="importmap">
     {
@@ -80,8 +68,8 @@
     </script>
 
     <script defer>
-    // Carga ultra-diferida de trackers para no afectar TBT (Total Blocking Time)
-    window.addEventListener('DOMContentLoaded', function() {
+    // Diferimiento de trackers para optimizar TBT (Total Blocking Time)
+    window.addEventListener('load', function() {
       setTimeout(function() {
         if (!window.fbq) {
           !function(f,b,e,v,n,t,s)
@@ -95,7 +83,7 @@
           fbq('init', '1284275437030502');
           fbq('track', 'PageView');
         }
-      }, 3500); 
+      }, 5000); 
     });
     </script>
 </head>

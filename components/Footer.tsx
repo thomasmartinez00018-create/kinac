@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { MapPin, Phone, Mail, Instagram, MessageCircle, Navigation, ArrowUpRight } from 'lucide-react';
 import { CONTACT_INFO, NAV_LINKS } from '../constants';
@@ -20,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
           observer.disconnect();
         }
       },
-      { rootMargin: '300px' } // Cargar 300px antes de llegar
+      { rootMargin: '300px' } 
     );
 
     if (mapRef.current) observer.observe(mapRef.current);
@@ -29,7 +28,6 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
 
   return (
     <footer id="ubicacion" className="bg-brand-blue text-gray-200 scroll-mt-24">
-      {/* Map Section with Lazy Load */}
       <div ref={mapRef} className="w-full h-[350px] md:h-[450px] bg-gray-100 relative overflow-hidden">
         {loadMap ? (
           <iframe 
@@ -49,14 +47,15 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
           </div>
         )}
 
-        {/* Floating Location Card */}
         <div className="absolute top-6 left-6 z-10 hidden md:block max-w-sm">
           <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-5 border border-gray-100 flex items-start gap-4">
             <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center flex-shrink-0 border border-gray-100 shadow-sm">
               <img 
-                src="https://i.postimg.cc/c4Rr5ddD/Logo.png" 
+                src="/assets/logo.webp" 
                 alt="Kinac" 
-                className="w-10 h-auto object-contain"
+                width="40"
+                height="40"
+                className="h-10 w-auto object-contain"
               />
             </div>
             <div>
@@ -80,10 +79,12 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
         <div className="grid md:grid-cols-4 gap-12">
           
           <div className="col-span-1 md:col-span-1">
-            <div className="bg-white rounded-xl p-3 inline-block mb-4 shadow-md">
+            <div className="bg-white rounded-xl p-2 inline-block mb-4 shadow-md">
               <img 
-                src="https://i.postimg.cc/c4Rr5ddD/Logo.png" 
+                src="/assets/logo.webp" 
                 alt="Kinac Logo" 
+                width="70"
+                height="70"
                 loading="lazy"
                 className="h-16 w-auto object-contain"
               />

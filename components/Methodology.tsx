@@ -18,7 +18,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onSchedule }) => {
               <div className="relative">
                 <div className="aspect-[4/3] md:aspect-square lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gray-100 relative group bg-gray-100">
                   <img 
-                    src="https://i.postimg.cc/3x8ZJSRV/image.png" 
+                    src="/assets/professional-care.webp" 
                     alt="Licenciada Silvina de Kinac realizando tratamiento profesional" 
                     width="600"
                     height="750"

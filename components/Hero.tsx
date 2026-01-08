@@ -10,10 +10,10 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
   return (
-    <section className="relative pt-24 pb-12 lg:pt-32 lg:pb-20 overflow-hidden bg-gradient-to-br from-primary-50 to-white">
+    <section className="relative hero-critical-bg overflow-hidden">
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-brand-sky/10 rounded-full blur-3xl"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-24 pb-12 lg:pt-32 lg:pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           
           <div className="order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
@@ -35,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
             </Reveal>
 
             <Reveal priority>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 leading-tight mb-6 hero-title">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 leading-tight mb-6 hero-title-placeholder">
                 Recuperá tu movimiento, <span className="text-brand-blue">potenciá tu bienestar.</span>
               </h1>
             </Reveal>
@@ -79,7 +79,7 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
               </div>
               <div className="text-sm">
                 <div className="flex text-brand-yellow mb-0.5">
-                  {[1,2,3,4,5].map(i => <Star key={i} className="w-3 h-3 fill-current" />)}
+                  {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
                 </div>
                 <p className="font-bold text-gray-800 underline decoration-brand-sky">Reseñas 5.0 Google</p>
               </div>
@@ -87,12 +87,12 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
           </div>
 
           <div className="order-2 relative mt-8 lg:mt-0">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] md:h-[550px] border-4 border-white bg-gray-100">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[3/4] md:h-[600px] border-4 border-white bg-gray-100">
                <img 
-                 src="https://i.postimg.cc/qR8RRLQ2/image.png" 
+                 src="/assets/image.webp" 
                  alt="Sala de kinesiología y entrenamiento Kinac en Recoleta" 
                  width="800"
-                 height="600"
+                 height="1067"
                  className="w-full h-full object-cover"
                  // @ts-ignore
                  fetchpriority="high"

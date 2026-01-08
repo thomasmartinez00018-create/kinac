@@ -1,4 +1,3 @@
-
 import { 
   Activity, 
   Bone, 
@@ -50,19 +49,18 @@ export const PAIN_POINTS: PainPoint[] = [
 ];
 
 export const SERVICES: Service[] = [
-  // Clinical Services
   {
     id: 'deportiva',
     title: 'Rehabilitación Deportiva',
     description: 'Retorno al movimiento seguro. Evaluaciones biomecánicas para personas activas, corredores y bailarines.',
-    iconUrl: 'https://i.postimg.cc/vHmYFbRn/Gemini-Generated-Image-gl1b7igl1b7igl1b.png',
+    iconUrl: '/assets/rehabilitacion-deportiva.webp',
     category: 'clinical'
   },
   {
     id: 'kine-integral',
     title: 'Kinesiología Integral',
     description: 'Sesiones 1 a 1 de una hora. Terapia manual, ejercicio terapéutico y fisioterapia analgésica con enfoque en la causa.',
-    iconUrl: 'https://i.postimg.cc/k5W9F58M/Gemini-Generated-Image-5zt1225zt1225zt1.png',
+    iconUrl: '/assets/kinesiologia-integral.webp',
     category: 'clinical'
   },
   {
@@ -72,8 +70,6 @@ export const SERVICES: Service[] = [
     icon: Sparkles,
     category: 'clinical'
   },
-  
-  // Group Classes
   {
     id: 'flex',
     title: 'Taller FLEX',
