@@ -27,7 +27,6 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
                     <MapPin className="w-4 h-4" />
                     <span>Recoleta, Buenos Aires</span>
                 </div>
-                {/* PROMO BADGE - Using Orange and Yellow for warmth */}
                 <button 
                   onClick={onPromoSchedule}
                   className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-yellow/15 text-brand-orange text-sm font-bold border border-brand-yellow animate-pulse hover:scale-105 transition-all cursor-pointer shadow-sm active:scale-95"
@@ -70,7 +69,7 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
               <div className="mt-8 flex items-center gap-4">
                 <div className="flex -space-x-2">
                   {[1,2,3,4].map(i => (
-                     <img key={i} className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src={`https://picsum.photos/seed/kinac${i}/100/100`} alt="user" />
+                     <img key={i} loading="lazy" className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src={`https://picsum.photos/seed/kinac${i}/100/100`} alt="user" />
                   ))}
                   <div className="h-8 w-8 rounded-full bg-gray-100 ring-2 ring-white flex items-center justify-center text-xs font-bold text-gray-500">+</div>
                 </div>
@@ -92,10 +91,11 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
                    src="https://i.postimg.cc/qR8RRLQ2/image.png" 
                    alt="Sala de ejercicios Kinac Recoleta" 
                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                   // @ts-ignore
+                   fetchpriority="high"
                  />
               </div>
               
-              {/* Floating Card - Using Brand Blue and Sky Blue */}
               <div className="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-md p-5 rounded-2xl shadow-2xl hidden md:block border border-gray-100 z-20 min-w-[240px]">
                  <div className="flex items-center gap-4">
                    <div className="bg-primary-50 p-2.5 rounded-xl border border-primary-100">

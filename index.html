@@ -8,7 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Optimizamos fuentes: solo pesos necesarios y display swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
@@ -20,11 +21,11 @@
             },
             colors: {
               brand: {
-                orange: '#ec6e34', // Acción/Energía
-                yellow: '#f1b810', // Calidez
-                green: '#0ea253',  // Salud/Naturaleza
-                sky: '#01a5dd',    // Movimiento/Aire
-                blue: '#046dae',   // Confianza/Clínico
+                orange: '#ec6e34',
+                yellow: '#f1b810',
+                green: '#0ea253',
+                sky: '#01a5dd',
+                blue: '#046dae',
               },
               primary: {
                 50: '#f0f7fb',
@@ -32,9 +33,9 @@
                 200: '#b8d9ec',
                 300: '#7cbbe0',
                 400: '#389cd0',
-                500: '#0ea2da', // Sky blue base
+                500: '#0ea2da',
                 600: '#01a5dd', 
-                700: '#046dae', // Deep blue base
+                700: '#046dae', 
                 800: '#06598c',
                 900: '#0a4a71',
               },
@@ -44,7 +45,7 @@
                 200: '#fbd7c5',
                 300: '#f8ba9a',
                 400: '#f28b5e',
-                500: '#ec6e34', // Orange base
+                500: '#ec6e34',
                 600: '#d95a24',
                 700: '#b44a1e',
                 800: '#903c1a',
@@ -58,6 +59,9 @@
     <style>
       html { scroll-behavior: smooth; }
       body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+      /* Pre-render style for text to avoid layout shift */
+      .font-serif { font-display: swap; }
+      .font-sans { font-display: swap; }
     </style>
   <script type="importmap">
 {
@@ -71,27 +75,23 @@
   }
 }
 </script>
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel Code Deferido -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1284275437030502');
-fbq('track', 'PageView');
+window.addEventListener('load', function() {
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1284275437030502');
+  fbq('track', 'PageView');
+});
 </script>
-<!-- End Meta Pixel Code -->
 </head>
   <body>
-    <!-- Meta Pixel NoScript -->
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1284275437030502&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel NoScript -->
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

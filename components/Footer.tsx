@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { MapPin, Phone, Mail, Instagram, MessageCircle, Navigation, ArrowUpRight } from 'lucide-react';
 import { CONTACT_INFO, NAV_LINKS } from '../constants';
 import Button from './ui/Button';
@@ -9,20 +9,45 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
+  const [loadMap, setLoadMap] = useState(false);
+  const mapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setLoadMap(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '300px' } // Cargar 300px antes de llegar
+    );
+
+    if (mapRef.current) observer.observe(mapRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <footer id="ubicacion" className="bg-brand-blue text-gray-200 scroll-mt-24">
-      {/* Map Section */}
-      <div className="w-full h-[450px] bg-gray-200 relative overflow-hidden">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.2238497676646!2d-58.4078438!3d-34.5951911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccbf92e037037%3A0x3a7adaf9f6bbba3!2sKINAC%20%7C%20Centro%20de%20Kinesiolog%C3%ADa%20y%20Acupuntura!5e0!3m2!1ses-419!2sar!4v1710000000000!5m2!1ses-419!2sar" 
-          width="100%" 
-          height="100%" 
-          style={{ border: 0 }} 
-          allowFullScreen 
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Ubicación Kinac Recoleta"
-        ></iframe>
+      {/* Map Section with Lazy Load */}
+      <div ref={mapRef} className="w-full h-[350px] md:h-[450px] bg-gray-100 relative overflow-hidden">
+        {loadMap ? (
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.2238497676646!2d-58.4078438!3d-34.5951911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccbf92e037037%3A0x3a7adaf9f6bbba3!2sKINAC%20%7C%20Centro%20de%20Kinesiolog%C3%ADa%20y%20Acupuntura!5e0!3m2!1ses-419!2sar!4v1710000000000!5m2!1ses-419!2sar" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Ubicación Kinac Recoleta"
+          ></iframe>
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center bg-gray-50 p-4 text-center">
+            <MapPin className="w-10 h-10 text-brand-blue/20 mb-2" />
+            <p className="text-gray-400 text-sm font-medium">Cargando mapa...</p>
+          </div>
+        )}
 
         {/* Floating Location Card */}
         <div className="absolute top-6 left-6 z-10 hidden md:block max-w-sm">
@@ -54,12 +79,12 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid md:grid-cols-4 gap-12">
           
-          {/* Brand & Social */}
           <div className="col-span-1 md:col-span-1">
             <div className="bg-white rounded-xl p-3 inline-block mb-4 shadow-md">
               <img 
                 src="https://i.postimg.cc/c4Rr5ddD/Logo.png" 
                 alt="Kinac Logo" 
+                loading="lazy"
                 className="h-16 w-auto object-contain"
               />
             </div>
@@ -87,7 +112,6 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="text-lg font-serif font-semibold text-white mb-4">Navegación</h4>
             <ul className="space-y-2">
@@ -107,7 +131,6 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h4 className="text-lg font-serif font-semibold text-white mb-4">Contacto</h4>
             <ul className="space-y-4 text-sm">
@@ -126,7 +149,6 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
             </ul>
           </div>
 
-          {/* CTA Column */}
           <div className="md:text-right" id="contact">
             <h4 className="text-lg font-serif font-semibold text-white mb-4">Turnos</h4>
             <p className="text-sm text-primary-100 mb-4">
