@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { X, Gift, Sparkles, ArrowRight } from 'lucide-react';
 import Button from './ui/Button';
@@ -11,14 +12,11 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClaim }) => {
   const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
-    // Check if user has already seen the popup in this session
     const hasSeenPromo = sessionStorage.getItem('hasSeenPromoJan');
     
     if (!hasSeenPromo) {
-      // Delay appearance by 2 seconds for better UX
       const timer = setTimeout(() => {
         setShouldRender(true);
-        // Small delay to allow render before transition
         setTimeout(() => setIsVisible(true), 50);
       }, 2000);
       return () => clearTimeout(timer);
@@ -28,7 +26,7 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClaim }) => {
   const handleClose = () => {
     setIsVisible(false);
     sessionStorage.setItem('hasSeenPromoJan', 'true');
-    setTimeout(() => setShouldRender(false), 300); // Wait for animation
+    setTimeout(() => setShouldRender(false), 300);
   };
 
   const handleClaim = () => {
@@ -41,17 +39,15 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClaim }) => {
   return (
     <div className={`fixed inset-0 z-[70] flex items-center justify-center px-4 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       
-      {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-gray-900/60 backdrop-blur-sm"
         onClick={handleClose}
       ></div>
 
-      {/* Card */}
       <div className={`relative bg-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 ${isVisible ? 'scale-100 translate-y-0' : 'scale-95 translate-y-10'}`}>
         
-        {/* Decorative Header */}
-        <div className="bg-gradient-to-r from-accent-500 to-accent-600 p-6 text-white text-center relative overflow-hidden">
+        {/* Header using Brand Orange */}
+        <div className="bg-gradient-to-r from-brand-orange to-accent-600 p-6 text-white text-center relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full opacity-10">
             <div className="absolute top-[-20%] left-[-10%] w-32 h-32 bg-white rounded-full blur-2xl"></div>
             <div className="absolute bottom-[-20%] right-[-10%] w-32 h-32 bg-white rounded-full blur-2xl"></div>
@@ -69,13 +65,12 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClaim }) => {
               <Gift className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-2xl font-serif font-bold tracking-tight">¡Promo Enero!</h3>
-            <p className="text-accent-100 font-medium text-sm mt-1">Gimnasia Integradora para Adultos</p>
+            <p className="text-white/80 font-medium text-sm mt-1">Gimnasia Integradora para Adultos</p>
           </div>
         </div>
 
-        {/* Content */}
         <div className="p-6 md:p-8 text-center">
-          <div className="flex items-center justify-center gap-2 mb-4 text-primary-600 font-bold bg-primary-50 py-2 px-4 rounded-lg inline-flex mx-auto">
+          <div className="flex items-center justify-center gap-2 mb-4 text-brand-orange font-bold bg-accent-50 py-2 px-4 rounded-lg inline-flex mx-auto border border-brand-orange/10">
             <Sparkles className="w-5 h-5" />
             <span>2 Clases + 1 de Regalo</span>
           </div>
@@ -87,14 +82,14 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClaim }) => {
           </p>
 
           <div className="space-y-3">
-            <Button onClick={handleClaim} className="w-full justify-center bg-accent-500 hover:bg-accent-600 shadow-accent-200">
+            <Button onClick={handleClaim} variant="secondary" className="w-full justify-center shadow-brand-orange/20">
               Quiero mi clase de regalo <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <button 
               onClick={handleClose}
               className="text-gray-400 text-sm font-medium hover:text-gray-600 transition-colors"
             >
-              No, gracias. Prefiero pagar precio full.
+              No, gracias.
             </button>
           </div>
         </div>

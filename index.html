@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kinac | Kinesiología y Acupuntura en Recoleta</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Optimizamos fuentes: solo pesos necesarios y display swap -->
+    <link rel="preconnect" href="https://i.postimg.cc">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
@@ -21,7 +21,7 @@
             },
             colors: {
               brand: {
-                orange: '#ec6e34',
+                orange: '#d35416', // Oscurecido para mejor contraste (Accesibilidad)
                 yellow: '#f1b810',
                 green: '#0ea253',
                 sky: '#01a5dd',
@@ -38,18 +38,6 @@
                 700: '#046dae', 
                 800: '#06598c',
                 900: '#0a4a71',
-              },
-              accent: {
-                50: '#fef7f4',
-                100: '#fdede6',
-                200: '#fbd7c5',
-                300: '#f8ba9a',
-                400: '#f28b5e',
-                500: '#ec6e34',
-                600: '#d95a24',
-                700: '#b44a1e',
-                800: '#903c1a',
-                900: '#753418',
               }
             }
           }
@@ -59,9 +47,9 @@
     <style>
       html { scroll-behavior: smooth; }
       body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-      /* Pre-render style for text to avoid layout shift */
       .font-serif { font-display: swap; }
-      .font-sans { font-display: swap; }
+      /* Prevenir saltos de diseño en imágenes */
+      img { content-visibility: auto; }
     </style>
   <script type="importmap">
 {
@@ -75,19 +63,20 @@
   }
 }
 </script>
-<!-- Meta Pixel Code Deferido -->
 <script>
 window.addEventListener('load', function() {
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1284275437030502');
-  fbq('track', 'PageView');
+  setTimeout(function() {
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1284275437030502');
+    fbq('track', 'PageView');
+  }, 2000); // Retraso de 2s para no penalizar el LCP
 });
 </script>
 </head>

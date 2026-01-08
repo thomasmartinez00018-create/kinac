@@ -6,11 +6,11 @@ import { Reveal } from './ui/Reveal';
 
 const Testimonials: React.FC = () => {
   return (
-    <section className="py-12 md:py-16 bg-primary-900 text-white relative overflow-hidden">
-      {/* Background Decor */}
+    <section className="py-12 md:py-16 bg-brand-blue text-white relative overflow-hidden">
+      {/* Background Decor using brand colors */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
-        <div className="absolute top-10 right-10 w-96 h-96 bg-primary-400 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 left-10 w-72 h-72 bg-accent-500 rounded-full blur-3xl"></div>
+        <div className="absolute top-10 right-10 w-96 h-96 bg-brand-sky rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-72 h-72 bg-brand-orange rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -37,21 +37,21 @@ const Testimonials: React.FC = () => {
                     <ExternalLink className="w-4 h-4" />
                   </div>
                   <div className="mb-6">
-                    <div className="flex gap-1 text-accent-400 mb-4">
+                    <div className="flex gap-1 text-brand-yellow mb-4">
                       {[...Array(t.rating)].map((_, i) => (
                         <Star key={i} className="w-5 h-5 fill-current" />
                       ))}
                     </div>
-                    <Quote className="w-10 h-10 text-primary-300 opacity-50" />
+                    <Quote className="w-10 h-10 text-brand-sky opacity-40" />
                   </div>
                   <p className="text-base text-gray-100 mb-6 italic font-serif flex-grow leading-relaxed">"{t.content}"</p>
                   <div className="flex items-center gap-4 mt-auto">
-                    <div className="w-10 h-10 rounded-full bg-primary-200 flex items-center justify-center text-primary-900 font-bold uppercase">
+                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white font-bold uppercase border border-white/30">
                       {t.name.charAt(0)}
                     </div>
                     <div>
                       <h4 className="font-bold text-white leading-tight">{t.name}</h4>
-                      <p className="text-xs text-primary-200 uppercase tracking-wider font-semibold">{t.role}</p>
+                      <p className="text-xs text-brand-sky uppercase tracking-wider font-semibold">{t.role}</p>
                     </div>
                   </div>
                 </div>
@@ -69,19 +69,15 @@ const Testimonials: React.FC = () => {
                   className="inline-flex items-center gap-2 bg-white px-5 py-2.5 rounded-full shadow-lg hover:scale-105 transition-transform group"
                 >
                     <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="h-5" />
-                    <div className="flex text-yellow-500">
-                        <Star className="w-4 h-4 fill-current"/>
-                        <Star className="w-4 h-4 fill-current"/>
-                        <Star className="w-4 h-4 fill-current"/>
-                        <Star className="w-4 h-4 fill-current"/>
-                        <Star className="w-4 h-4 fill-current"/>
+                    <div className="flex text-brand-yellow">
+                        {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current"/>)}
                     </div>
                     <span className="text-gray-800 font-bold text-sm">5.0 de 40 reseñas</span>
-                    <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-primary-600 ml-1" />
+                    <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-brand-blue ml-1" />
                 </a>
             </Reveal>
             <Reveal delay={500}>
-                <p className="text-primary-200 text-sm italic">Hacé clic en cualquier reseña para verla en Google Maps</p>
+                <p className="text-white/60 text-xs italic">Hacé clic en cualquier reseña para verla en Google Maps</p>
             </Reveal>
         </div>
       </div>

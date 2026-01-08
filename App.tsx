@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProblemSection from './components/ProblemSection';
@@ -9,47 +9,49 @@ import Methodology from './components/Methodology';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
-import ScheduleModal from './components/ScheduleModal';
 import FloatingCTA from './components/FloatingCTA';
 import PromoPopup from './components/PromoPopup';
+import { CONTACT_INFO } from './constants';
 
 const App: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [promoContext, setPromoContext] = useState<string | null>(null);
+  // Función centralizada para manejar la redirección a WhatsApp
+  const handleContact = (isPromo = false) => {
+    // Tracking de Meta Pixel antes de salir
+    // Fix: Access fbq via type casting to any to avoid TypeScript "property does not exist" error on window (Line 20 & 21)
+    const fbq = (window as any).fbq;
+    if (fbq) {
+      fbq('track', 'Lead');
+    }
 
-  const openModal = () => {
-    setPromoContext(null); // Reset promo context for standard opens
-    setIsModalOpen(true);
+    const message = isPromo 
+      ? "Hola Kinac! Me gustaría aprovechar la Promo Enero (2+1) para el Taller Corporal. ¿Me podrían dar más información?"
+      : "Hola Kinac! Me gustaría recibir información sobre los turnos y servicios de kinesiología y acupuntura. Gracias!";
+
+    const url = `https://wa.me/${CONTACT_INFO.whatsapp}?text=${encodeURIComponent(message)}`;
+    
+    // Abrir en nueva pestaña
+    window.open(url, '_blank');
   };
-
-  const openPromoModal = () => {
-    setPromoContext('PROMO_ENERO_2+1');
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => setIsModalOpen(false);
 
   return (
     <div className="font-sans text-gray-900 bg-white min-h-screen selection:bg-primary-200 selection:text-primary-900">
-      <Navbar onSchedule={openModal} />
+      <Navbar onSchedule={() => handleContact(false)} />
       <main>
-        <Hero onSchedule={openModal} onPromoSchedule={openPromoModal} />
+        <Hero 
+          onSchedule={() => handleContact(false)} 
+          onPromoSchedule={() => handleContact(true)} 
+        />
         <ProblemSection />
-        <Services onSchedule={openModal} />
+        <Services onSchedule={() => handleContact(false)} />
         <AcupunctureSection />
-        <Methodology onSchedule={openModal} />
+        <Methodology onSchedule={() => handleContact(false)} />
         <Testimonials />
         <FAQ />
       </main>
-      <Footer onSchedule={openModal} />
+      <Footer onSchedule={() => handleContact(false)} />
       
-      <ScheduleModal 
-        isOpen={isModalOpen} 
-        onClose={closeModal} 
-        promoContext={promoContext}
-      />
-      <PromoPopup onClaim={openPromoModal} />
-      <FloatingCTA onClick={openModal} />
+      <PromoPopup onClaim={() => handleContact(true)} />
+      <FloatingCTA onClick={() => handleContact(false)} />
     </div>
   );
 };

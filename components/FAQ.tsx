@@ -25,17 +25,17 @@ const FAQ: React.FC = () => {
           {FAQS.map((faq, index) => (
             <Reveal key={faq.id} delay={index * 100}>
               <div 
-                className={`bg-white rounded-xl border transition-all duration-300 ${openIndex === index ? 'border-primary-500 shadow-md' : 'border-gray-200 hover:border-primary-300'}`}
+                className={`bg-white rounded-xl border transition-all duration-300 ${openIndex === index ? 'border-brand-sky shadow-md' : 'border-gray-200 hover:border-brand-sky/40'}`}
               >
                 <button
                   className="w-full px-6 py-5 flex justify-between items-center focus:outline-none"
                   onClick={() => toggleFAQ(index)}
                 >
-                  <span className={`font-semibold text-lg text-left ${openIndex === index ? 'text-primary-700' : 'text-gray-800'}`}>
+                  <span className={`font-semibold text-lg text-left ${openIndex === index ? 'text-brand-blue' : 'text-gray-800'}`}>
                     {faq.question}
                   </span>
                   {openIndex === index ? (
-                    <ChevronUp className="w-5 h-5 text-primary-600" />
+                    <ChevronUp className="w-5 h-5 text-brand-blue" />
                   ) : (
                     <ChevronDown className="w-5 h-5 text-gray-400" />
                   )}
@@ -45,7 +45,7 @@ const FAQ: React.FC = () => {
                     openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <div className="px-6 pb-6 text-gray-600 leading-relaxed">
+                  <div className="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-50 pt-4">
                     {faq.answer}
                   </div>
                 </div>
