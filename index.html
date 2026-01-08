@@ -4,11 +4,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kinac | Kinesiología y Acupuntura en Recoleta</title>
+    
+    <!-- Preconexión a dominios críticos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://i.postimg.cc">
+    
+    <!-- Carga de fuentes no bloqueante (Pattern: Print to All) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    </noscript>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
@@ -20,11 +28,11 @@
             },
             colors: {
               brand: {
-                orange: '#d35416', // Oscurecido para mejor contraste (Accesibilidad)
-                yellow: '#f1b810',
-                green: '#0ea253',
-                sky: '#01a5dd',
-                blue: '#046dae',
+                orange: '#c2410c',
+                yellow: '#b45309',
+                green: '#15803d',
+                sky: '#0369a1',
+                blue: '#1e40af',
               },
               primary: {
                 50: '#f0f7fb',
@@ -46,38 +54,50 @@
     <style>
       html { scroll-behavior: smooth; }
       body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+      /* Forzar swap para evitar invisible text (FOIT) */
+      @font-face { font-display: swap; }
       .font-serif { font-display: swap; }
-      /* Prevenir saltos de diseño en imágenes */
+      
+      /* Optimización de Renderizado */
       img { content-visibility: auto; }
+      ::selection { background-color: #1e40af; color: white; }
+      
+      /* CSS Crítico para el Hero para evitar CLS y FOUC */
+      .hero-title { min-height: 1.2em; }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "vite": "https://esm.sh/vite@^7.3.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
-  }
-}
-</script>
-<script>
-window.addEventListener('load', function() {
-  setTimeout(function() {
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1284275437030502');
-    fbq('track', 'PageView');
-  }, 2000); // Retraso de 2s para no penalizar el LCP
-});
-</script>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "vite": "https://esm.sh/vite@^7.3.0",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+      }
+    }
+    </script>
+
+    <script defer>
+    // Carga ultra-diferida de trackers para no afectar TBT (Total Blocking Time)
+    window.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        if (!window.fbq) {
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '1284275437030502');
+          fbq('track', 'PageView');
+        }
+      }, 3500); 
+    });
+    </script>
 </head>
   <body>
     <div id="root"></div>

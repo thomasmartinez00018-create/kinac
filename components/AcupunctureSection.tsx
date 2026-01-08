@@ -21,7 +21,7 @@ const AcupunctureSection: React.FC = () => {
                 <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-8 border-gray-50 bg-gray-100">
                   <img 
                     src="https://i.postimg.cc/25WjcwsM/Gemini-Generated-Image-7lfbt87lfbt87lfb.png" 
-                    alt="Sesión de Acupuntura Profesional" 
+                    alt="Profesional de Kinac realizando sesión de Acupuntura Clínica" 
                     width="600"
                     height="750"
                     loading="lazy"
@@ -34,7 +34,7 @@ const AcupunctureSection: React.FC = () => {
                     <div className="bg-brand-green/10 p-1.5 rounded-lg">
                         <UserCheck className="w-5 h-5 text-brand-green" />
                     </div>
-                    <span className="font-bold text-xs text-brand-green uppercase tracking-widest">Equilibrio Kinac</span>
+                    <span className="font-bold text-xs text-brand-green uppercase tracking-widest text-brand-green">Equilibrio Kinac</span>
                   </div>
                   <p className="text-sm text-gray-600 leading-relaxed">
                     La Acupuntura potencia la recuperación y reduce el estrés, equilibrando tu bienestar físico y emocional.
@@ -62,7 +62,7 @@ const AcupunctureSection: React.FC = () => {
                 {techniques.map((tech, idx) => (
                   <div key={idx} className="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors group">
                     <div className="bg-primary-50 p-2.5 rounded-lg text-brand-blue group-hover:bg-brand-green group-hover:text-white transition-all">
-                      <tech.icon className="w-5 h-5" />
+                      <tech.icon className="w-5 h-5" aria-hidden="true" />
                     </div>
                     <div>
                       <h4 className="font-bold text-gray-900 text-sm mb-1">{tech.title}</h4>

@@ -19,7 +19,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onSchedule }) => {
                 <div className="aspect-[4/3] md:aspect-square lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gray-100 relative group bg-gray-100">
                   <img 
                     src="https://i.postimg.cc/3x8ZJSRV/image.png" 
-                    alt="Licenciada Silvina realizando tratamiento en Kinac" 
+                    alt="Licenciada Silvina de Kinac realizando tratamiento profesional" 
                     width="600"
                     height="750"
                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
@@ -48,7 +48,11 @@ const Methodology: React.FC<MethodologyProps> = ({ onSchedule }) => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button onClick={onSchedule} aria-label="Agendar una reunión informativa" className="w-full md:w-auto shadow-lg shadow-brand-blue/10">
+                <Button 
+                  onClick={onSchedule} 
+                  aria-label="Agendar una reunión informativa por WhatsApp" 
+                  className="w-full md:w-auto shadow-lg shadow-brand-blue/10"
+                >
                   Agendar reunión <ArrowRight className="ml-2 w-5 h-5"/>
                 </Button>
               </div>

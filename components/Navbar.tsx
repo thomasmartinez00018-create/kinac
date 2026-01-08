@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Instagram, Calendar } from 'lucide-react';
 import { NAV_LINKS } from '../constants';
@@ -16,7 +15,7 @@ const Navbar: React.FC<NavbarProps> = ({ onSchedule }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -59,9 +58,11 @@ const Navbar: React.FC<NavbarProps> = ({ onSchedule }) => {
             <img 
               src="https://i.postimg.cc/c4Rr5ddD/Logo.png" 
               alt="Logo de Kinac" 
-              width="120"
-              height="60"
-              className="h-12 md:h-14 w-auto object-contain"
+              width="84"
+              height="42"
+              className="h-10 md:h-12 w-auto object-contain"
+              // @ts-ignore
+              fetchpriority="high"
             />
           </a>
 

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Star, Quote, ExternalLink } from 'lucide-react';
 import { TESTIMONIALS, CONTACT_INFO } from '../constants';
@@ -30,19 +29,20 @@ const Testimonials: React.FC = () => {
                 href={CONTACT_INFO.mapsLink} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="block h-full group"
+                aria-label={`Ver reseña completa de ${t.name} en Google Maps`}
+                className="block h-full group focus:outline-none focus:ring-4 focus:ring-brand-sky/50 rounded-2xl"
               >
                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/10 hover:bg-white/15 hover:border-white/30 transition-all duration-300 h-full flex flex-col relative">
                   <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-40 transition-opacity">
                     <ExternalLink className="w-4 h-4" />
                   </div>
                   <div className="mb-6">
-                    <div className="flex gap-1 text-brand-yellow mb-4">
+                    <div className="flex gap-1 text-yellow-400 mb-4">
                       {[...Array(t.rating)].map((_, i) => (
                         <Star key={i} className="w-5 h-5 fill-current" />
                       ))}
                     </div>
-                    <Quote className="w-10 h-10 text-brand-sky opacity-40" />
+                    <Quote className="w-10 h-10 text-brand-sky opacity-40" aria-hidden="true" />
                   </div>
                   <p className="text-base text-gray-100 mb-6 italic font-serif flex-grow leading-relaxed">"{t.content}"</p>
                   <div className="flex items-center gap-4 mt-auto">
@@ -51,7 +51,7 @@ const Testimonials: React.FC = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-white leading-tight">{t.name}</h4>
-                      <p className="text-xs text-brand-sky uppercase tracking-wider font-semibold">{t.role}</p>
+                      <p className="text-xs text-primary-200 uppercase tracking-wider font-semibold">{t.role}</p>
                     </div>
                   </div>
                 </div>
@@ -66,10 +66,11 @@ const Testimonials: React.FC = () => {
                   href={CONTACT_INFO.mapsLink} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-white px-5 py-2.5 rounded-full shadow-lg hover:scale-105 transition-transform group"
+                  aria-label="Ver todas nuestras reseñas en Google"
+                  className="inline-flex items-center gap-2 bg-white px-5 py-2.5 rounded-full shadow-lg hover:scale-105 transition-transform group focus:outline-none focus:ring-4 focus:ring-brand-sky/50"
                 >
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="h-5" />
-                    <div className="flex text-brand-yellow">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" width="60" height="20" className="h-5 w-auto" />
+                    <div className="flex text-yellow-500">
                         {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current"/>)}
                     </div>
                     <span className="text-gray-800 font-bold text-sm">5.0 de 40 reseñas</span>

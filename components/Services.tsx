@@ -36,14 +36,14 @@ const Services: React.FC<ServicesProps> = ({ onSchedule }) => {
                     {service.iconUrl ? (
                       <img 
                         src={service.iconUrl} 
-                        alt={service.title} 
+                        alt={`Servicio de ${service.title}`} 
                         width="64"
                         height="64"
                         loading="lazy"
                         className="w-full h-full object-cover" 
                       />
                     ) : (
-                      service.icon && <service.icon className="w-7 h-7 text-brand-blue" />
+                      service.icon && <service.icon className="w-7 h-7 text-brand-blue" aria-hidden="true" />
                     )}
                   </div>
                   <h3 className="text-xl font-serif font-bold text-gray-900 mb-3">{service.title}</h3>
@@ -55,7 +55,10 @@ const Services: React.FC<ServicesProps> = ({ onSchedule }) => {
 
           <div className="mt-10 flex justify-center">
             <Reveal delay={300}>
-              <Button onClick={onSchedule} aria-label="Agendar turno de kinesiología">
+              <Button 
+                onClick={onSchedule} 
+                aria-label="Agendar turno de kinesiología personalizada"
+              >
                 Agendar Turno Kinésico <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Reveal>
@@ -70,7 +73,7 @@ const Services: React.FC<ServicesProps> = ({ onSchedule }) => {
               <span className="text-brand-orange font-bold tracking-wide uppercase text-xs">COMUNIDAD KINAC</span>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mt-2 mb-4">Clases y Talleres Grupales</h2>
               <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-                Espacios de movimiento supervisado para mantenerte sano y activo.
+                Espacios de movimiento supervisado para mantenerte sano, fuerte y activo.
               </p>
             </Reveal>
           </div>
@@ -85,7 +88,7 @@ const Services: React.FC<ServicesProps> = ({ onSchedule }) => {
                     </div>
                   )}
                   <div className="mb-6 w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-orange shadow-inner border border-brand-orange/10">
-                    {service.icon && <service.icon className="w-8 h-8" />}
+                    {service.icon && <service.icon className="w-8 h-8" aria-hidden="true" />}
                   </div>
                   <h3 className="text-xl font-serif font-bold text-gray-900 mb-3">{service.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{service.description}</p>

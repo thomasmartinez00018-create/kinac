@@ -25,7 +25,7 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
                 </div>
                 <button 
                   onClick={onPromoSchedule}
-                  aria-label="Ver promoción de Enero"
+                  aria-label="Ver promoción de Enero de clases gratuitas"
                   className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange text-white text-sm font-bold animate-pulse hover:scale-105 transition-all cursor-pointer shadow-md"
                 >
                     <Gift className="w-4 h-4" />
@@ -35,26 +35,26 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
             </Reveal>
 
             <Reveal priority>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 leading-tight mb-6 hero-title">
                 Recuperá tu movimiento, <span className="text-brand-blue">potenciá tu bienestar.</span>
               </h1>
             </Reveal>
 
-            <Reveal delay={50} priority>
+            <Reveal priority>
               <div className="text-lg md:text-xl text-gray-700 mb-8 max-w-lg leading-relaxed">
-                <p className="font-bold text-brand-blue/90 uppercase tracking-wide text-sm mb-2 text-brand-blue">
+                <p className="font-bold text-brand-blue uppercase tracking-wide text-sm mb-2">
                   Kinesiología · Actividad física adultos · Rehabilitación deportiva
                 </p>
                 <p>Un espacio profesional para entrenar sin miedo y sin dolor.</p>
               </div>
             </Reveal>
 
-            <Reveal delay={100} priority>
+            <Reveal priority>
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                 <Button 
                   size="lg" 
                   variant="secondary"
-                  aria-label="Solicitar evaluación ahora"
+                  aria-label="Solicitar evaluación profesional inicial"
                   className="w-full sm:w-auto shadow-xl" 
                   onClick={onSchedule}
                 >
@@ -71,9 +71,9 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
                     loading="lazy" 
                     width="32" 
                     height="32" 
-                    className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" 
+                    className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover bg-gray-100" 
                     src={`https://picsum.photos/seed/kinac${i}/64/64`} 
-                    alt={`Paciente Kinac ${i}`} 
+                    alt={`Paciente de Kinac ${i}`} 
                    />
                 ))}
               </div>
@@ -90,7 +90,7 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] md:h-[550px] border-4 border-white bg-gray-100">
                <img 
                  src="https://i.postimg.cc/qR8RRLQ2/image.png" 
-                 alt="Sala de kinesiología y entrenamiento Kinac" 
+                 alt="Sala de kinesiología y entrenamiento Kinac en Recoleta" 
                  width="800"
                  height="600"
                  className="w-full h-full object-cover"
