@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Sparkles, Wind, Flame, Zap, MousePointer2, UserCheck } from 'lucide-react';
 import { Reveal } from './ui/Reveal';
@@ -19,14 +18,17 @@ const AcupunctureSection: React.FC = () => {
           <div className="relative order-2 lg:order-1">
             <Reveal>
               <div className="relative">
-                <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-8 border-gray-50">
+                <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-8 border-gray-50 bg-gray-100">
                   <img 
                     src="https://i.postimg.cc/25WjcwsM/Gemini-Generated-Image-7lfbt87lfbt87lfb.png" 
                     alt="Sesión de Acupuntura Profesional" 
+                    width="600"
+                    height="750"
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                {/* Floating Benefit Card - Using Brand Green and Yellow */}
+                {/* Floating Benefit Card */}
                 <div className="absolute -bottom-6 -right-6 bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-2xl max-w-[260px] hidden md:block border border-gray-100">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="bg-brand-green/10 p-1.5 rounded-lg">

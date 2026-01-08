@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Star, MapPin, Gift } from 'lucide-react';
 import Button from './ui/Button';
@@ -43,7 +42,7 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
 
             <Reveal delay={50} priority>
               <div className="text-lg md:text-xl text-gray-700 mb-8 max-w-lg leading-relaxed">
-                <p className="font-bold text-brand-blue/90 uppercase tracking-wide text-sm mb-2">
+                <p className="font-bold text-brand-blue/90 uppercase tracking-wide text-sm mb-2 text-brand-blue">
                   Kinesiología · Actividad física adultos · Rehabilitación deportiva
                 </p>
                 <p>Un espacio profesional para entrenar sin miedo y sin dolor.</p>
@@ -88,7 +87,7 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
           </div>
 
           <div className="order-2 relative mt-8 lg:mt-0">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] md:h-[550px] border-4 border-white">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] md:h-[550px] border-4 border-white bg-gray-100">
                <img 
                  src="https://i.postimg.cc/qR8RRLQ2/image.png" 
                  alt="Sala de kinesiología y entrenamiento Kinac" 

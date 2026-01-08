@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { GraduationCap, ArrowRight } from 'lucide-react';
 import { Reveal } from './ui/Reveal';
@@ -17,17 +16,17 @@ const Methodology: React.FC<MethodologyProps> = ({ onSchedule }) => {
           <div className="relative order-2 lg:order-1">
             <Reveal>
               <div className="relative">
-                {/* Single High-Quality Image Container */}
-                <div className="aspect-[4/3] md:aspect-square lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gray-100 relative group">
+                <div className="aspect-[4/3] md:aspect-square lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gray-100 relative group bg-gray-100">
                   <img 
                     src="https://i.postimg.cc/3x8ZJSRV/image.png" 
                     alt="Licenciada Silvina realizando tratamiento en Kinac" 
+                    width="600"
+                    height="750"
                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                     loading="lazy"
                   />
                 </div>
                 
-                {/* Decorative background elements using brand colors */}
                 <div className="absolute -top-6 -right-6 w-32 h-32 bg-brand-sky/10 rounded-full mix-blend-multiply filter blur-2xl -z-10 opacity-70"></div>
                 <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-brand-yellow/10 rounded-full mix-blend-multiply filter blur-3xl -z-10 opacity-60"></div>
               </div>
@@ -49,7 +48,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onSchedule }) => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button onClick={onSchedule} className="w-full md:w-auto shadow-lg shadow-brand-blue/10">
+                <Button onClick={onSchedule} aria-label="Agendar una reunión informativa" className="w-full md:w-auto shadow-lg shadow-brand-blue/10">
                   Agendar reunión <ArrowRight className="ml-2 w-5 h-5"/>
                 </Button>
               </div>

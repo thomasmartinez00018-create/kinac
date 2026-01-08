@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Tag, ArrowRight } from 'lucide-react';
 import { SERVICES } from '../constants';
@@ -37,7 +36,7 @@ const Services: React.FC<ServicesProps> = ({ onSchedule }) => {
                     {service.iconUrl ? (
                       <img 
                         src={service.iconUrl} 
-                        alt="" 
+                        alt={service.title} 
                         width="64"
                         height="64"
                         loading="lazy"
@@ -79,13 +78,13 @@ const Services: React.FC<ServicesProps> = ({ onSchedule }) => {
           <div className="grid md:grid-cols-3 gap-8">
             {groupServices.map((service, index) => (
               <Reveal key={service.id} delay={index * 100}>
-                <div className={`relative bg-white p-8 rounded-2xl border transition-all h-full flex flex-col items-center text-center ${service.promo ? 'border-brand-orange bg-accent-50/30' : 'border-gray-100'}`}>
+                <div className={`relative bg-white p-8 rounded-2xl border transition-all h-full flex flex-col items-center text-center ${service.promo ? 'border-brand-orange bg-orange-50/30' : 'border-gray-100'}`}>
                   {service.promo && (
                     <div className="absolute -top-4 bg-brand-orange text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
                       {service.promo}
                     </div>
                   )}
-                  <div className="mb-6 w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-orange shadow-inner">
+                  <div className="mb-6 w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-orange shadow-inner border border-brand-orange/10">
                     {service.icon && <service.icon className="w-8 h-8" />}
                   </div>
                   <h3 className="text-xl font-serif font-bold text-gray-900 mb-3">{service.title}</h3>
