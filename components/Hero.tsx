@@ -10,7 +10,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
   return (
-    <section className="relative hero-critical-bg overflow-hidden">
+    <section className="relative hero-critical-bg overflow-hidden no-cv">
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-brand-sky/10 rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-24 pb-12 lg:pt-32 lg:pb-20">
@@ -25,7 +25,7 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
                 </div>
                 <button 
                   onClick={onPromoSchedule}
-                  aria-label="Ver promoción de Enero de clases gratuitas"
+                  aria-label="Ver promoción de Enero"
                   className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange text-white text-sm font-bold animate-pulse hover:scale-105 transition-all cursor-pointer shadow-md"
                 >
                     <Gift className="w-4 h-4" />
@@ -35,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
             </Reveal>
 
             <Reveal priority>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 leading-tight mb-6 hero-title-placeholder">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 leading-tight mb-6">
                 Recuperá tu movimiento, <span className="text-brand-blue">potenciá tu bienestar.</span>
               </h1>
             </Reveal>
@@ -43,7 +43,7 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
             <Reveal priority>
               <div className="text-lg md:text-xl text-gray-700 mb-8 max-w-lg leading-relaxed">
                 <p className="font-bold text-brand-blue uppercase tracking-wide text-sm mb-2">
-                  Kinesiología · Actividad física adultos · Rehabilitación deportiva
+                  Kinesiología · Actividad física · Rehabilitación
                 </p>
                 <p>Un espacio profesional para entrenar sin miedo y sin dolor.</p>
               </div>
@@ -54,7 +54,6 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
                 <Button 
                   size="lg" 
                   variant="secondary"
-                  aria-label="Solicitar evaluación profesional inicial"
                   className="w-full sm:w-auto shadow-xl" 
                   onClick={onSchedule}
                 >
@@ -69,11 +68,12 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
                    <img 
                     key={i} 
                     loading="lazy" 
+                    decoding="async"
                     width={32} 
                     height={32} 
                     className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover bg-gray-100" 
                     src={`https://picsum.photos/seed/kinac${i}/64/64`} 
-                    alt={`Paciente de Kinac ${i}`} 
+                    alt={`Paciente ${i}`} 
                    />
                 ))}
               </div>
@@ -81,19 +81,20 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
                 <div className="flex text-brand-yellow mb-0.5">
                   {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
                 </div>
-                <p className="font-bold text-gray-800 underline decoration-brand-sky">Reseñas 5.0 Google</p>
+                <p className="font-bold text-gray-800 border-b border-brand-sky/30">Reseñas 5.0 Google</p>
               </div>
             </div>
           </div>
 
           <div className="order-2 relative mt-8 lg:mt-0">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[3/4] md:h-[600px] border-4 border-white bg-gray-100">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[3/4] md:h-[600px] border-4 border-white bg-gray-50">
                <img 
                  src="/image.webp" 
-                 alt="Sala de kinesiología y entrenamiento Kinac en Recoleta" 
+                 alt="Sala de kinesiología Kinac" 
                  width={600}
                  height={800}
                  className="w-full h-full object-cover"
+                 decoding="async"
                  // @ts-ignore
                  fetchpriority="high"
                />

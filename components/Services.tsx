@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tag, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { SERVICES } from '../constants';
 import { Reveal } from './ui/Reveal';
 import Button from './ui/Button';
@@ -21,25 +21,23 @@ const Services: React.FC<ServicesProps> = ({ onSchedule }) => {
               <div>
                 <span className="text-brand-blue font-bold tracking-wide uppercase text-xs">Consultorio Especializado</span>
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mt-2">Tratamientos Kinésicos</h2>
-                <p className="mt-3 text-gray-700 max-w-2xl">
-                  Sesiones profesionales 1 a 1 de 1 hora. Combinamos terapia manual y ejercicio terapéutico para tu recuperación.
-                </p>
               </div>
             </Reveal>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {clinicalServices.map((service, index) => (
-              <Reveal key={service.id} delay={index * 100}>
+              <Reveal key={service.id} delay={index * 50}>
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-brand-sky/30 transition-all h-full flex flex-col group">
                   <div className="mb-6 w-16 h-16 bg-primary-50 rounded-xl flex items-center justify-center overflow-hidden">
                     {service.iconUrl ? (
                       <img 
                         src={service.iconUrl} 
-                        alt={`Servicio de ${service.title}`} 
+                        alt={service.title} 
                         width={64}
                         height={64}
                         loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover" 
                       />
                     ) : (
@@ -52,42 +50,27 @@ const Services: React.FC<ServicesProps> = ({ onSchedule }) => {
               </Reveal>
             ))}
           </div>
-
-          <div className="mt-10 flex justify-center">
-            <Reveal delay={300}>
-              <Button 
-                onClick={onSchedule} 
-                aria-label="Agendar turno de kinesiología personalizada"
-              >
-                Agendar Turno Kinésico <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </Reveal>
-          </div>
         </div>
       </section>
 
       <section id="clases" className="py-12 md:py-16 bg-white scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 md:mb-14">
+          <div className="text-center mb-10">
             <Reveal>
-              <span className="text-brand-orange font-bold tracking-wide uppercase text-xs">COMUNIDAD KINAC</span>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mt-2 mb-4">Clases y Talleres Grupales</h2>
-              <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-                Espacios de movimiento supervisado para mantenerte sano, fuerte y activo.
-              </p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Clases y Talleres Grupales</h2>
             </Reveal>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {groupServices.map((service, index) => (
-              <Reveal key={service.id} delay={index * 100}>
-                <div className={`relative bg-white p-8 rounded-2xl border transition-all h-full flex flex-col items-center text-center ${service.promo ? 'border-brand-orange bg-orange-50/30' : 'border-gray-100'}`}>
+              <Reveal key={service.id} delay={index * 50}>
+                <div className={`relative bg-white p-8 rounded-2xl border transition-all h-full flex flex-col items-center text-center ${service.promo ? 'border-brand-orange bg-orange-50/20' : 'border-gray-100'}`}>
                   {service.promo && (
                     <div className="absolute -top-4 bg-brand-orange text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
                       {service.promo}
                     </div>
                   )}
-                  <div className="mb-6 w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-orange shadow-inner border border-brand-orange/10">
+                  <div className="mb-6 w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-orange shadow-sm border border-brand-orange/10">
                     {service.icon && <service.icon className="w-8 h-8" aria-hidden="true" />}
                   </div>
                   <h3 className="text-xl font-serif font-bold text-gray-900 mb-3">{service.title}</h3>
