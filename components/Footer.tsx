@@ -43,7 +43,7 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center bg-gray-50 p-4 text-center">
             <MapPin className="w-10 h-10 text-brand-blue/20 mb-2" />
-            <p className="text-gray-400 text-sm font-medium">Cargando mapa...</p>
+            <p className="text-gray-600 text-sm font-medium">Cargando mapa...</p>
           </div>
         )}
 
@@ -59,8 +59,8 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
               />
             </div>
             <div>
-              <h4 className="text-gray-900 font-serif font-bold text-lg leading-tight">KINAC Recoleta</h4>
-              <p className="text-gray-500 text-xs mt-1 mb-3">{CONTACT_INFO.address}</p>
+              <h3 className="text-gray-900 font-serif font-bold text-lg leading-tight">KINAC Recoleta</h3>
+              <p className="text-gray-600 text-xs mt-1 mb-3">{CONTACT_INFO.address}</p>
               <a 
                 href={CONTACT_INFO.mapsLink}
                 target="_blank"
@@ -93,7 +93,7 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
               Kinesiología y Acupuntura en Recoleta. Especialistas en rehabilitación deportiva y columna.
             </p>
             <div>
-              <h5 className="text-xs font-bold uppercase tracking-widest text-primary-200 mb-4">Comunidad</h5>
+              <h3 className="text-xs font-bold uppercase tracking-widest text-white mb-4">Comunidad</h3>
               <a 
                 href={CONTACT_INFO.instagramLink} 
                 target="_blank" 
@@ -105,7 +105,7 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
                 </div>
                 <div>
                   <p className="text-sm font-bold leading-none">{CONTACT_INFO.instagram}</p>
-                  <p className="text-[10px] text-primary-300 mt-1 flex items-center gap-1 uppercase tracking-tighter">
+                  <p className="text-[10px] text-primary-200 mt-1 flex items-center gap-1 uppercase tracking-tighter">
                     Seguinos para ver más <ArrowUpRight className="w-2 h-2" />
                   </p>
                 </div>
@@ -114,7 +114,7 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
           </div>
 
           <div>
-            <h4 className="text-lg font-serif font-semibold text-white mb-4">Navegación</h4>
+            <h3 className="text-lg font-serif font-semibold text-white mb-4">Navegación</h3>
             <ul className="space-y-2">
               {NAV_LINKS.map(link => (
                 <li key={link.label}>
@@ -133,7 +133,7 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
           </div>
 
           <div>
-            <h4 className="text-lg font-serif font-semibold text-white mb-4">Contacto</h4>
+            <h3 className="text-lg font-serif font-semibold text-white mb-4">Contacto</h3>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 mr-3 text-brand-sky flex-shrink-0" />
@@ -151,7 +151,7 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
           </div>
 
           <div className="md:text-right" id="contact">
-            <h4 className="text-lg font-serif font-semibold text-white mb-4">Turnos</h4>
+            <h3 className="text-lg font-serif font-semibold text-white mb-4">Turnos</h3>
             <p className="text-sm text-primary-100 mb-4">
               Respondé 4 preguntas simples para asesorarte mejor.
             </p>
@@ -167,7 +167,7 @@ const Footer: React.FC<FooterProps> = ({ onSchedule }) => {
 
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm text-primary-300">
+        <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm text-primary-100">
           <p>&copy; {new Date().getFullYear()} Kinac - Kinesiología y Acupuntura. Todos los derechos reservados.</p>
         </div>
       </div>

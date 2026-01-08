@@ -50,7 +50,7 @@ const Testimonials: React.FC = () => {
                       {t.name.charAt(0)}
                     </div>
                     <div>
-                      <h4 className="font-bold text-white leading-tight">{t.name}</h4>
+                      <h3 className="font-bold text-white leading-tight">{t.name}</h3>
                       <p className="text-xs text-primary-200 uppercase tracking-wider font-semibold">{t.role}</p>
                     </div>
                   </div>
@@ -78,7 +78,7 @@ const Testimonials: React.FC = () => {
                 </a>
             </Reveal>
             <Reveal delay={500}>
-                <p className="text-white/60 text-xs italic">Hacé clic en cualquier reseña para verla en Google Maps</p>
+                <p className="text-white/80 text-xs italic">Hacé clic en cualquier reseña para verla en Google Maps</p>
             </Reveal>
         </div>
       </div>

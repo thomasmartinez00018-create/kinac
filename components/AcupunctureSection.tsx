@@ -65,8 +65,8 @@ const AcupunctureSection: React.FC = () => {
                       <tech.icon className="w-5 h-5" aria-hidden="true" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900 text-sm mb-1">{tech.title}</h4>
-                      <p className="text-xs text-gray-500">{tech.desc}</p>
+                      <h3 className="font-bold text-gray-900 text-sm mb-1">{tech.title}</h3>
+                      <p className="text-xs text-gray-600">{tech.desc}</p>
                     </div>
                   </div>
                 ))}

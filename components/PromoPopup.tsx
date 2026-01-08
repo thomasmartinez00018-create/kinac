@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { X, Gift, Sparkles, ArrowRight } from 'lucide-react';
 import Button from './ui/Button';
@@ -56,6 +55,7 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClaim }) => {
           <button 
             onClick={handleClose} 
             className="absolute top-4 right-4 text-white/80 hover:text-white hover:bg-white/20 rounded-full p-1 transition-colors"
+            aria-label="Cerrar promoción"
           >
             <X className="w-5 h-5" />
           </button>
@@ -75,10 +75,10 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClaim }) => {
             <span>2 Clases + 1 de Regalo</span>
           </div>
           
-          <p className="text-gray-600 mb-8 leading-relaxed">
+          <p className="text-gray-700 mb-8 leading-relaxed">
             Arrancá el año en movimiento. Abonando 2 clases semanales, te regalamos la 3ra para que vengas más veces.
             <br/>
-            <span className="text-xs text-gray-400 mt-2 block">(Válido solo por el mes de Enero)</span>
+            <span className="text-xs text-gray-600 mt-2 block font-medium">(Válido solo por el mes de Enero)</span>
           </p>
 
           <div className="space-y-3">
@@ -87,7 +87,7 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClaim }) => {
             </Button>
             <button 
               onClick={handleClose}
-              className="text-gray-400 text-sm font-medium hover:text-gray-600 transition-colors"
+              className="text-gray-600 text-sm font-bold hover:text-gray-900 transition-colors py-2"
             >
               No, gracias.
             </button>
