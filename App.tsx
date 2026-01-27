@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -14,13 +13,24 @@ import PromoPopup from './components/PromoPopup';
 import { CONTACT_INFO } from './constants';
 
 const App: React.FC = () => {
-  // Función centralizada para manejar la redirección a WhatsApp
+  // Función centralizada para manejar la redirección a WhatsApp y el tracking de eventos
   const handleContact = (isPromo = false) => {
-    // Tracking de Meta Pixel antes de salir
-    // Fix: Access fbq via type casting to any to avoid TypeScript "property does not exist" error on window (Line 20 & 21)
+    // Tracking de Meta Pixel (Lead Event)
     const fbq = (window as any).fbq;
-    if (fbq) {
-      fbq('track', 'Lead');
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead', {
+        content_name: isPromo ? 'Promo Enero WhatsApp' : 'General Inquiry WhatsApp',
+        status: 'Sent'
+      });
+    }
+
+    // Tracking de Google Ads / GTM opcional (ya manejado por GTM si está configurado)
+    const gtag = (window as any).gtag;
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', {
+        'event_category': 'Engagement',
+        'event_label': isPromo ? 'Promo Enero' : 'Contacto General'
+      });
     }
 
     const message = isPromo 
