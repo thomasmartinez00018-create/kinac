@@ -19,7 +19,7 @@ const App: React.FC = () => {
     const fbq = (window as any).fbq;
     if (typeof fbq === 'function') {
       fbq('track', 'Lead', {
-        content_name: isPromo ? 'Promo Enero WhatsApp' : 'General Inquiry WhatsApp',
+        content_name: isPromo ? 'Promo Febrero WhatsApp' : 'General Inquiry WhatsApp',
         status: 'Sent'
       });
     }
@@ -29,12 +29,12 @@ const App: React.FC = () => {
     if (typeof gtag === 'function') {
       gtag('event', 'generate_lead', {
         'event_category': 'Engagement',
-        'event_label': isPromo ? 'Promo Enero' : 'Contacto General'
+        'event_label': isPromo ? 'Promo Febrero' : 'Contacto General'
       });
     }
 
     const message = isPromo 
-      ? "Hola Kinac! Me gustaría aprovechar la Promo Enero (2+1) para el Taller Corporal. ¿Me podrían dar más información?"
+      ? "Hola Kinac! Me gustaría aprovechar la Promo Febrero (2+1) para el Taller Corporal. ¿Me podrían dar más información?"
       : "Hola Kinac! Me gustaría recibir información sobre los turnos y servicios de kinesiología y acupuntura. Gracias!";
 
     const url = `https://wa.me/${CONTACT_INFO.whatsapp}?text=${encodeURIComponent(message)}`;

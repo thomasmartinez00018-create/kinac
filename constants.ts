@@ -83,7 +83,7 @@ export const SERVICES: Service[] = [
     description: 'Exploración del movimiento integrando fuerza, equilibrio y escucha postural para una vida más ágil.',
     icon: Users,
     category: 'group',
-    promo: '¡PROMO ENERO! 2 clases semanales + 1 de regalo 🎁'
+    promo: '¡PROMO FEBRERO! 2 clases semanales + 1 de regalo 🎁'
   },
   {
     id: 'rehab-mayores',

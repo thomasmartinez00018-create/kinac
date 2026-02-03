@@ -25,11 +25,11 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
                 </div>
                 <button 
                   onClick={onPromoSchedule}
-                  aria-label="Ver promoción de Enero"
+                  aria-label="Ver promoción de Febrero"
                   className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange text-white text-sm font-bold animate-pulse hover:scale-105 transition-all cursor-pointer shadow-md"
                 >
                     <Gift className="w-4 h-4" />
-                    <span>Promo Enero: +1 Clase Gratis</span>
+                    <span>Promo Febrero: +1 Clase Gratis</span>
                 </button>
               </div>
             </Reveal>

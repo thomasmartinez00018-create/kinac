@@ -11,7 +11,7 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClaim }) => {
   const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
-    const hasSeenPromo = sessionStorage.getItem('hasSeenPromoJan');
+    const hasSeenPromo = sessionStorage.getItem('hasSeenPromoFeb');
     
     if (!hasSeenPromo) {
       const timer = setTimeout(() => {
@@ -24,7 +24,7 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClaim }) => {
 
   const handleClose = () => {
     setIsVisible(false);
-    sessionStorage.setItem('hasSeenPromoJan', 'true');
+    sessionStorage.setItem('hasSeenPromoFeb', 'true');
     setTimeout(() => setShouldRender(false), 300);
   };
 
@@ -64,7 +64,7 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClaim }) => {
             <div className="bg-white/20 p-3 rounded-full mb-3 backdrop-blur-sm border border-white/30 animate-pulse">
               <Gift className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-2xl font-serif font-bold tracking-tight">¡Promo Enero!</h3>
+            <h3 className="text-2xl font-serif font-bold tracking-tight">¡Promo Febrero!</h3>
             <p className="text-white/80 font-medium text-sm mt-1">Gimnasia Integradora para Adultos</p>
           </div>
         </div>
@@ -76,9 +76,9 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClaim }) => {
           </div>
           
           <p className="text-gray-700 mb-8 leading-relaxed">
-            Arrancá el año en movimiento. Abonando 2 clases semanales, te regalamos la 3ra para que vengas más veces.
+            Continuá el año en movimiento. Abonando 2 clases semanales, te regalamos la 3ra para que vengas más veces.
             <br/>
-            <span className="text-xs text-gray-600 mt-2 block font-medium">(Válido solo por el mes de Enero)</span>
+            <span className="text-xs text-gray-600 mt-2 block font-medium">(Válido solo por el mes de Febrero)</span>
           </p>
 
           <div className="space-y-3">
