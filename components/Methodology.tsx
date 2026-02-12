@@ -18,7 +18,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onSchedule }) => {
               <div className="relative">
                 <div className="aspect-[4/3] md:aspect-square lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gray-100 relative group bg-gray-100">
                   <img 
-                    src="/professional-care.webp" 
+                    src="https://i.postimg.cc/JGKKbtQq/image.png" 
                     alt="Licenciada Silvina de Kinac realizando tratamiento profesional de kinesiología personalizada" 
                     width={600}
                     height={750}
@@ -36,7 +36,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onSchedule }) => {
           <div className="order-1 lg:order-2">
             <Reveal>
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary-50 text-brand-blue rounded-full text-sm font-semibold mb-4 border border-primary-100">
-                <GraduationCap className="w-4 h-4" />
+                <graduationcap className="w-4 h-4" />
                 Equipo Profesional UBA
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-gray-900 mb-6 leading-tight">
@@ -53,7 +53,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onSchedule }) => {
                   aria-label="Agendar una reunión informativa por WhatsApp" 
                   className="w-full md:w-auto shadow-lg shadow-brand-blue/10"
                 >
-                  Agendar reunión <ArrowRight className="ml-2 w-5 h-5"/>
+                  Agendar reunión <arrowright className="ml-2 w-5 h-5"/>
                 </Button>
               </div>
             </Reveal>

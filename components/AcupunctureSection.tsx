@@ -20,7 +20,7 @@ const AcupunctureSection: React.FC = () => {
               <div className="relative">
                 <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-8 border-gray-50 bg-gray-100">
                   <img 
-                    src="/acupuncture.webp" 
+                    src="https://i.postimg.cc/MKMtTpJS/image.png" 
                     alt="Profesional de Kinac realizando sesión de Acupuntura Clínica y equilibrando la energía del paciente" 
                     width={600}
                     height={750}

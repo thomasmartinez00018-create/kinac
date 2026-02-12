@@ -89,7 +89,7 @@ const Hero: React.FC<HeroProps> = ({ onSchedule, onPromoSchedule }) => {
           <div className="order-2 relative mt-8 lg:mt-0">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[3/4] md:h-[600px] border-4 border-white bg-gray-50">
                <img 
-                 src="/image.webp" 
+                 src="https://i.postimg.cc/LX83MHVP/image.png" 
                  alt="Sala de kinesiología Kinac" 
                  width={600}
                  height={800}

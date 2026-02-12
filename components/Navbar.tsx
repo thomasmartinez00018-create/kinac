@@ -56,7 +56,7 @@ const Navbar: React.FC<NavbarProps> = ({ onSchedule }) => {
             onClick={(e) => handleNavClick(e, '#')}
           >
             <img 
-              src="/logo.webp" 
+              src="https://i.postimg.cc/30Jb2Gzb/logo.webp" 
               alt="Logo de Kinac" 
               width={70}
               height={70}
