@@ -76,6 +76,13 @@ const PreQualModal: React.FC<PreQualModalProps> = ({ isOpen, onClose, onComplete
 
   const currentStepData = steps[step - 1];
 
+  // Determinamos el ID del botón según el paso actual para tracking
+  const getButtonId = () => {
+    if (step === 1) return 'btn_triage_paso1';
+    if (step === 2) return 'btn_triage_paso2';
+    return undefined;
+  };
+
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
       {/* Backdrop */}
@@ -120,6 +127,7 @@ const PreQualModal: React.FC<PreQualModalProps> = ({ isOpen, onClose, onComplete
             {currentStepData.options.map((option, idx) => (
               <button
                 key={idx}
+                id={getButtonId()}
                 onClick={() => handleOptionSelect(currentStepData.field, option.val)}
                 className={`w-full flex items-center gap-4 p-5 rounded-2xl border-2 text-left transition-all duration-300 group ${
                   (formData as any)[currentStepData.field] === option.val
