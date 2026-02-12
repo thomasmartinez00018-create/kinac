@@ -36,7 +36,6 @@ const Methodology: React.FC<MethodologyProps> = ({ onSchedule }) => {
           <div className="order-1 lg:order-2">
             <Reveal>
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary-50 text-brand-blue rounded-full text-sm font-semibold mb-4 border border-primary-100">
-                {/* Removed non-existent Projector component that was causing a build error */}
                 <GraduationCap className="w-4 h-4" />
                 Equipo Profesional UBA
               </div>
